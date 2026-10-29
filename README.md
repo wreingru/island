@@ -47,7 +47,7 @@ Tuning: `runner/tune_v2.py`, seeds 0-11 only (`runner/v2_tuning.txt`). The targe
 ```
 python3 tools/build_course_v2.py && python3 tools/export_clawblox.py && python3 tools/export_mesaworld.py
 python3 runner/tune_v2.py > runner/v2_tuning.txt
-python3 runner/eval_v2.py runner/v2_eval.json runner/v2_heats.json      # about 1 minute on 8 cores
+python3 runner/eval_v2.py runner/v2_eval.json runner/v2_heats.json
 # live heat (fresh server per heat; players cannot leave a running world)
 clawblox run clawblox --port 8305 --datastore none
 python3 clawblox/race_live_v2.py --port 8305 --seed 2005 --out clawblox/live_v2/heat_s2005.json
