@@ -1,23 +1,25 @@
-# Mesa Island Race Course: agent API
+# Mesa Island Race Course v2: agent API
 
 Join with `POST /join?name=<bot>`, then send inputs with `POST /input` and the `X-Session` header. Read state with `GET /observe`.
-Up to 5 bots per world (one heat).
 
-## Inputs
-| type | data | effect |
+Wing-swarm bots only (Clawblox humanoid, WalkSpeed 5.5). Up to 5 players per world. Join, then send `Start`; the first `Start` releases the whole swarm's clock and the squall.
+
+| Input | Data | What it does |
 |---|---|---|
-| `SelectModel` | `{"model": "beetle_walker" \| "flying_beetle" \| "triathlete" \| "wing_swarm" \| "curvity_scout", "speed_scale": 1, "reserve_J": 13}` | Pick the bot model while still in the start pen. `speed_scale` multiplies WalkSpeed (times are logged unscaled; divide nothing, just record the scale). |
-| `Start` | `{}` | Leave the pen; the bot's race clock starts. |
-| `MoveTo` | `{"position": [x, y, z]}` | Walk (or wade, in the bay) toward a point. |
-| `Stop` | `{}` | Stop moving. |
+| `Start` | `{"seed": 2005}` | Leave the start pen and start racing. The first Start also starts the squall and seeds the gust. |
+| `MoveTo` | `{"position": [x, y, z]}` | Walk toward a point (straight line, no pathfinding). Ignored once lost or downed. |
+| `Stop` | `{}` | Cancel the current MoveTo. |
 | `Jump` | `{}` | Jump. |
-| `Hop` | `{"to": [x, y, z], "apex": 8}` | Flying beetle only. Costs 2.61 J; refused below 1.15 x cost. Kinematic arc lasting 2.22 s / speed_scale. |
 
-## Course (node order)
-N0 start pen (-34, -44) -> N1 reef bay swim (swimmers wade the bay and round the buoy at (30.6, -45.2), then exit at the beach (24, -37); others walk the shore path from (6, -35) to (24, -35) with a 20 s penalty) -> optional N1b reef hold (walk the reef to the tip beacon (28.3, -48.5) and stay 10 s; first beetle-type bot only) -> N2 runway from z = -56 to the plane zone at z = 8 (x = -2) -> N3 plane crossing to the goal line z = 56 -> N4 drone gates D, C (on the reef), B, A: start at D's take-off pad (-26, -40), pass each gate opening in the air, or touch the red check-in pad beside its post on foot (+10 s), finish at A's landing pad (40, -29.5) -> N5 COTA loop: enter the transition pad (25, -31.5), pass the 4 checkpoints per lap (2 laps for triathletes, 1 for others), come back to the pad -> N6 hill: go through the tunnels in the ridges at z = -25 and z = -19 -> N7 summit pad (20, -10).
+## Course
 
-Transit legs between nodes are untimed.
+N0 start pen (-34, -44) and approach -> N1 runway lot (cars and pallets; 0.5-stud pallets can be stepped over) -> N2 plane crossing on foot -> N3 west return leg -> N4 gust shore: the 6-stud strip between the open bay (x 7..34, z -50..-37, no reef) and the cliff wall (z -31..-30), with a crosswind toward the water -> N5 hill: tunnels at x = 16 (ridge z = -25) and x = 24 (ridge z = -19) -> N6 summit pad (20, -10). Nodes are entered by progress along `course.json` `centreline`.
+
+## Boundary (squall line)
+
+The squall disc moves along the centreline at 3.0 studs/s and shrinks from radius 14 to 3. Outside it a bot loses 6 energy per second (start 100; base drain 0.1 + 0.004 v^2 per second). Energy 0: downed. Centre in the bay: lost. Cap: squall arrival + 60 s.
 
 ## Observation
-`player.attributes` holds `BotModel`, `RaceState` (pen / racing / finished), `CurrentNode`, `RaceClock`, `NodeLog` (JSON list of {node, enter, exit, split, mode}), `Penalties` (JSON), `GateLog` (JSON), `Laps`, `EnergyJ`, `LastActionResult`.
-Server log lines starting with `RACE ` are JSON node events (NODE_ENTER, NODE_EXIT, GATE, LAP, TUNNEL, PENALTY, FINISH ...).
+
+`player.attributes`: `BotModel`, `RaceState` (pen / racing / finished / lost / downed / timeout), `CurrentNode`, `RaceClock`, `NodeLog` (JSON list of {node, enter, exit, split}), `Energy`, `OutsideS`, `Exits`, `Progress` (studs along the centreline), `SquallX`, `SquallZ`, `SquallR`, `SquallS`, `Gust`, `LastActionResult`.
+Server log lines starting with `RACE ` are JSON events (SQUALL_START, NODE_ENTER, NODE_EXIT, LOST, DOWNED, TIMEOUT, FINISH).

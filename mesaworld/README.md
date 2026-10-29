@@ -7,7 +7,7 @@ same engine; there is no separate Mesa World server.
 
 Two ways to host:
 1. **Stand-alone world (done here):** `clawblox/` is a copy of the Mesa World island (from `worlds/mesa-island-wings`)
-   with the race course built in. Run it with `clawblox run clawblox --port 8295 --datastore none`.
+   with the v2 race course built in (wing swarm only, no reef, squall-line boundary). Run it with `clawblox run clawblox --port 8301 --datastore none`.
 2. **Inside the stock Mesa World (not done):** paste the course-building and node-tracking sections of `clawblox/main.lua`
    into `worlds/mesa-island/main.lua`. The stock world has mesas on the island that may overlap the course; that was not checked.
 

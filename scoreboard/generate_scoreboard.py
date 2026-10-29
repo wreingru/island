@@ -1,74 +1,89 @@
 #!/usr/bin/env python3
-"""Regenerate scoreboard/SCOREBOARD.md and scoreboard/leaderboard.json from scoreboard/results.jsonl."""
+"""Regenerate scoreboard/SCOREBOARD.md and scoreboard/leaderboard.json from scoreboard/results.jsonl (course v2).
+Needs only the standard library (the CI job installs jsonschema only); the bootstrap CIs are read from runner/v2_eval.json."""
 import json, os, statistics as st, datetime
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 course = json.load(open(os.path.join(ROOT, "course.json")))
-names = {m["id"]: m["name"] for m in course["bot_models"]}
-all_rows = [json.loads(l) for l in open(os.path.join(ROOT, "scoreboard", "results.jsonl")) if l.strip()]
-live = [r for r in all_rows if r.get("source") == "clawblox-live"]
-rows = [r for r in all_rows if r.get("source", "sim-bank") == "sim-bank"]
-rows.sort(key=lambda r: (r["total_time_s"], r["run_id"]))
+ev = json.load(open(os.path.join(ROOT, "runner", "v2_eval.json")))
+rows = [json.loads(l) for l in open(os.path.join(ROOT, "scoreboard", "results.jsonl")) if l.strip()]
+sim = [r for r in rows if r["source"] == "sim-v2"]; live = [r for r in rows if r["source"] == "clawblox-live"]
 fmt = lambda s: f"{int(s // 60)}:{s % 60:05.2f}"
-nodes = ["N1", "N1b", "N2", "N3", "N4", "N5", "N6"]
-models = [m["id"] for m in course["bot_models"]]
+nodes = ["N0", "N1", "N2", "N3", "N4", "N5"]
+NAME = {n["id"]: n["name"] for n in course["nodes"]}
+B = course["boundary"]
+ci = lambda v, d=2: f"{v[0]:.{d}f} [{v[1]:.{d}f}, {v[2]:.{d}f}]"
 
 L = [f"# Scoreboard: {course['title']} (course v{course['version']})", "",
-     f"Generated from `scoreboard/results.jsonl`: {len(all_rows)} rows ({len(live)} live, {len(rows)} sim-bank); sim-bank: {len(rows)} result rows, {len({r['heat_id'] for r in rows})} heats, "
-     f"commits {', '.join(sorted({r['commit_sha'][:10] for r in rows}))}.", "",
-     "Total = node splits + penalties - bonuses. Times are on each bot's own clock (released 15 s apart; transit legs between nodes are neutral).",
-     "Rows come from `runner/run_race.py`, which resamples measured per-bot records from the earlier sims; see each row's `provenance`.", "",
-     ]
-# ---- in-world section first, so live runs are not buried under the scaled sim-bank rows
-L += ["## In-world Clawblox races (source: clawblox-live)", "",
-      f"{len(live)} rows from {len({r['heat_id'] for r in live})} live heats. Times are read from the world's own node log "
-      "(Lua clock from each bot's Start, speed_scale 1). DNF rows show the node the bot was stuck in; their time is not ranked.", ""]
-for h in sorted({r["heat_id"] for r in live}):
-    hr = sorted((r for r in live if r["heat_id"] == h), key=lambda r: (r["status"] != "finished", r["total_time_s"]))
-    L += [f"### `{h}` (seed {hr[0]['seed']})", "", "| Place | Bot | Model | Total | Raw | Penalties | Bonus | Status | Nodes done | Run |", "|---|---|---|---|---|---|---|---|---|---|"]
+     f"Branch `v2-wing-swarm`. Generated from `scoreboard/results.jsonl`: {len(rows)} rows ({len(sim)} sim-v2 rows in "
+     f"{len({r['heat_id'] for r in sim})} heats, {len(live)} live rows in {len({r['heat_id'] for r in live})} heats). "
+     "Wing swarm only; v1 (five models, reef) results are on `main`.", "",
+     "Clock: one race clock from the swarm's release. Total = sum of node splits (no penalties or bonuses in v2). "
+     "A DNF is listed at the node it was in, with the reason: water (lost in the bay), energy (downed), cap, or fell.", "",
+     "## The boundary: squall line", "",
+     f"- Squall disc: moves along the centreline at {B['squall']['pace_studs_s']} studs/s from the start pen, radius shrinking "
+     f"from {B['squall']['R0']} to {B['squall']['R_min']} studs; outside it a bot loses {B['squall']['outside_energy_drain_per_s']} energy/s "
+     f"(E0 {B['energy']['E0']}, plus {B['energy']['base_drain_per_s']} + {B['energy']['effort_drain_per_s_per_speed2']} v^2 per s).",
+     f"- Gust shore (former reef bay, now open water): crosswind toward the water, OU mean {B['gust_shore']['ou_mean_studs_s']} studs/s, "
+     f"sigma {B['gust_shore']['ou_sigma']}; a bot whose centre enters the bay is lost.",
+     f"- Tuned on seeds {ev['tuning_seeds']} (`runner/v2_tuning.txt`), evaluated on held-out seeds {ev['eval_seeds']}; "
+     f"{ev['n_bots']} bots per heat; 95% CIs from 10,000 bootstrap resamples over heats.", "",
+     "## Held-out evaluation (sim, 40 heats per arm, paired seeds)", "",
+     "| Metric (per heat unless noted) | Squall line (full) | Squall only (no gust) | Boundary off |", "|---|---|---|---|"]
+A = ev["arms"] if "arms" in ev else {k: ev[k] for k in ("full", "squall", "off")}
+lab = [("completion", "Completion (share of 15 bots)", 3), ("time_s", "Finish time of finishers (s)", 1), ("exits", "Squall-disc exits", 1),
+       ("outside_s", "Bot-seconds outside the disc", 1), ("energy_end", "Energy left per bot (of 100)", 1), ("breaks", "Formation breaks", 2),
+       ("lost", "Bots lost in the water", 2), ("downed", "Bots downed (energy 0)", 2)]
+for k, name, d in lab:
+    L.append(f"| {name} | " + " | ".join(ci(A[a][k], d) if k in A[a] else "-" for a in ("full", "squall", "off")) + " |")
+D = {"full minus off": ev["paired_full_minus_off"], "full minus squall-only": ev["paired_full_minus_squall"]}
+L += ["", "Paired differences (mean [95% CI]):", ""]
+for dk, dv in D.items():
+    L.append(f"- {dk}: " + "; ".join(f"{k} {ci(v, 3 if k == 'completion' else 1)}" for k, v in dv.items()))
+L += ["", "Finishers arrive with the squall (path / pace = " f"{ev['path_len']} / {B['squall']['pace_studs_s']} s), so finish time is set by the squall, not by top speed.", ""]
+
+def table(rs, title):
+    out = [f"### {title}", "", "| Place | Bot | Total | Status | " + " | ".join(nodes) + " | Energy left | Outside (s) | Run |",
+           "|---|---|---|---|" + "---|" * len(nodes) + "---|---|---|"]
     k = 0
-    for r in hr:
+    for r in sorted(rs, key=lambda r: (r["status"] != "finished", r["total_time_s"] if r["status"] == "finished" else -r["raw_time_s"])):
         fin = r["status"] == "finished"; k += fin
-        L.append(f"| {k if fin else '-'} | {r['bot_name']} | {names[r['bot_model']]} | {fmt(r['total_time_s']) if fin else 'DNF'} | {fmt(r['raw_time_s'])} | "
-                 f"{sum(p['s'] for p in r['penalties']):.0f} s | {sum(b['s'] for b in r['bonuses']):.0f} s | {r['status']}{' at ' + r['dnf_at'] if not fin else ''} | "
-                 f"{', '.join(n for n in r['node_splits'] if n != 'N0')} | `{r['run_id']}` |")
-    L.append("")
-if not live:
-    L += ["No live heats yet.", ""]
-L += ["## Sim-bank rows (source: sim-bank)", "", "Everything below is the resampled sim bank only; live rows are not mixed into these rankings.", "",
-     "## Overall top 15", "", "| # | Bot | Model | Seed | Total | Raw | Penalties | Bonus | Status | Run |", "|---|---|---|---|---|---|---|---|---|---|"]
-for i, r in enumerate(rows[:15], 1):
-    L.append(f"| {i} | {r['bot_name']} | {names[r['bot_model']]} | {r['seed']} | {fmt(r['total_time_s'])} | {fmt(r['raw_time_s'])} | "
-             f"{sum(p['s'] for p in r['penalties']):.0f} s | {sum(b['s'] for b in r['bonuses']):.0f} s | {r['status']} | `{r['run_id']}` |")
-L += ["", "## By model", "", "| Model | Rows | Best | Median | Worst | Reef holds | Rescued | Pi sessions |", "|---|---|---|---|---|---|---|---|"]
-board = {"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "rows": len(rows), "top": [], "models": [],
-         "live": [{k: r.get(k) for k in ("run_id", "heat_id", "bot_name", "bot_model", "seed", "status", "dnf_at", "total_time_s", "raw_time_s", "node_splits")} for r in live]}
-for m in models:
-    mr = [r for r in rows if r["bot_model"] == m]
-    if not mr:
-        L.append(f"| {names[m]} | 0 | no data yet | | | | | |"); board["models"].append({"model": m, "rows": 0}); continue
-    t = [r["total_time_s"] for r in mr]
-    holds = sum(1 for r in mr if any(b["reason"] == "reef_held" for b in r["bonuses"]))
-    resc = sum(r["status"] == "rescued" for r in mr)
-    pis = sum(r["pi"]["real"] for r in mr)
-    L.append(f"| {names[m]} | {len(mr)} | {fmt(min(t))} | {fmt(st.median(t))} | {fmt(max(t))} | {holds} | {resc} | {pis} real / {len(mr)} |")
-    med = {n: round(st.median([r["node_splits"][n] for r in mr if n in r["node_splits"]]), 2) for n in nodes if any(n in r["node_splits"] for r in mr)}
-    board["models"].append({"model": m, "rows": len(mr), "best_s": min(t), "median_s": round(st.median(t), 2), "worst_s": max(t),
-                            "reef_holds": holds, "rescued": resc, "median_splits": med})
-L += ["", "## Median node splits by model (seconds, before penalties)", "", "| Model | " + " | ".join(nodes) + " |", "|---|" + "---|" * len(nodes)]
-for b in board["models"]:
-    if b["rows"]:
-        L.append(f"| {names[b['model']]} | " + " | ".join(str(b["median_splits"].get(n, "-")) for n in nodes) + " |")
-L += ["", "## Heat winners", "", "| Heat | Winner | Total |", "|---|---|---|"]
-for h in sorted({r["heat_id"] for r in rows}):
-    w = min((r for r in rows if r["heat_id"] == h), key=lambda r: r["total_time_s"])
-    L.append(f"| `{h}` | {w['bot_name']} | {fmt(w['total_time_s'])} |")
-L += ["", "## Read before comparing models", "",
-      "- Wing-swarm times are BeetleBot walking records scaled by 1.5/5.5 (an assumption: the Clawblox humanoid's MoveTo speed). It wins on that speed alone.",
-      "- Hill times are BeetleBot crawl times divided by 72.5 (an assumption to match the 1.5 studs/s island speed).",
-      "- Swim bypass, gate bypass and one walked COTA lap are derived from distance and speed, not measured. Penalty and bonus sizes are design choices.",
-      "- Seed bot has no data and is not raced."]
-board["top"] = [{k: r[k] for k in ("run_id", "bot_name", "bot_model", "seed", "total_time_s", "raw_time_s", "status")} for r in rows[:15]]
+        out.append(f"| {k if fin else '-'} | {r['bot_name']} | {fmt(r['total_time_s']) if fin else 'DNF'} | "
+                   f"{'finished' if fin else 'DNF at ' + r['dnf_at'] + ' (' + r['dnf_reason'] + ')'} | "
+                   + " | ".join(str(r["node_splits"].get(n, "-")) for n in nodes) + f" | {r['boundary']['energy_end']:.1f} | {r['boundary']['outside_s']:.1f} | `{r['run_id']}` |")
+    return out + [""]
+
+L += ["## In-world Clawblox heats (source: clawblox-live)", "",
+      "Five wing-swarm bots in the v2 Clawblox world (`clawblox/main.lua`), driven by `clawblox/race_live_v2.py`. The world moves the squall, "
+      "blows the gust and decides lost / downed / finished; times are its own node log. Three earlier driver-development heats "
+      "(s2001 to s2003, also 0 of 5 finished) are kept in `clawblox/live_v2/dev/` and are not scored.", ""]
+for h in sorted({r["heat_id"] for r in live}):
+    hr = [r for r in live if r["heat_id"] == h]
+    L += table(hr, f"`{h}` (seed {hr[0]['seed']}, port {hr[0]['in_world']['port']}): {sum(r['status'] == 'finished' for r in hr)} of {len(hr)} finished, "
+                   f"{hr[0]['boundary']['heat_formation_breaks']} formation breaks")
+if not live: L += ["No live heats yet.", ""]
+
+L += ["## Sim heats (source: sim-v2, held-out seeds)", "", "| Heat | Finished | Lost (water) | Downed | Cap | Formation breaks | Gust peak | Best | Median finisher |", "|---|---|---|---|---|---|---|---|---|"]
+board = {"generated_from": "scoreboard/results.jsonl", "course_id": course["id"], "rows": len(rows), "heats": [], "live": [], "eval": A, "diffs": D}
+for h in sorted({r["heat_id"] for r in sim}):
+    hr = [r for r in sim if r["heat_id"] == h]; ft = [r["total_time_s"] for r in hr if r["status"] == "finished"]
+    c = lambda why: sum(r.get("dnf_reason") == why for r in hr)
+    L.append(f"| `{h}` | {len(ft)} / {len(hr)} | {c('water')} | {c('energy')} | {c('cap')} | {hr[0]['boundary']['heat_formation_breaks']} | "
+             f"{hr[0]['boundary']['heat_gust_peak']} | {fmt(min(ft)) if ft else '-'} | {fmt(st.median(ft)) if ft else '-'} |")
+    board["heats"].append({"heat_id": h, "finished": len(ft), "bots": len(hr), "lost": c("water"), "downed": c("energy"), "cap": c("cap"),
+                           "best_s": min(ft) if ft else None, "formation_breaks": hr[0]["boundary"]["heat_formation_breaks"]})
+L += ["", "## Where the swarm drops out (sim-v2, all held-out heats)", "", "| Node | DNF here: water | energy | cap | Median split of bots that completed it (s) |", "|---|---|---|---|---|"]
+for n in nodes + ["N6"]:
+    dn = [r for r in sim if r["dnf_at"] == n]
+    sp = [r["node_splits"][n] for r in sim if n in r["node_splits"]]
+    L.append(f"| {n} {NAME[n]} | {sum(r['dnf_reason'] == 'water' for r in dn)} | {sum(r['dnf_reason'] == 'energy' for r in dn)} | "
+             f"{sum(r['dnf_reason'] == 'cap' for r in dn)} | {round(st.median(sp), 2) if sp else '-'} |")
+board["live"] = [{k: r.get(k) for k in ("run_id", "heat_id", "bot_name", "status", "dnf_at", "dnf_reason", "total_time_s", "node_splits", "boundary")} for r in live]
+L += ["", "## Read before using these numbers", "",
+      "- The sim (`runner/squall_sim.py`) is a 2-D kinematic model of 15 bots at the Clawblox humanoid's 5.5 studs/s; it is not the Clawblox physics.",
+      "- The live heat uses the same course and boundary numbers in the real world, but its bots also met engine problems the sim does not have "
+      "(bots pinned on the plane-zone car, and collision launches in a crowd). Read the live result as a check of the world, not of the 40-70% target.",
+      "- Energy units, drain rates and the gust strength are design choices, tuned on seeds 0-11 only."]
 open(os.path.join(ROOT, "scoreboard", "SCOREBOARD.md"), "w").write("\n".join(L) + "\n")
 json.dump(board, open(os.path.join(ROOT, "scoreboard", "leaderboard.json"), "w"), indent=1)
-print("SCOREBOARD.md:", len(all_rows), "rows", f"({len(live)} live)")
+print("SCOREBOARD.md:", len(rows), "rows", f"({len(live)} live)")

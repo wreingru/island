@@ -1,7 +1,7 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://example.invalid/island-race-course/result.schema.json",
- "title": "Island race result row (one bot in one heat)",
+ "title": "Island race result row v2 (one wing-swarm bot in one heat)",
  "type": "object",
  "required": [
   "schema_version",
@@ -24,7 +24,8 @@
   "commit_sha",
   "generated_at",
   "driver",
-  "source"
+  "source",
+  "boundary"
  ],
  "properties": {
   "schema_version": {
@@ -32,26 +33,20 @@
   },
   "run_id": {
    "type": "string",
-   "pattern": "^irc-v[0-9]+-[a-z_]+-s[0-9]{3}-b[0-9]+$"
+   "pattern": "^irc-v[0-9]+-[a-z_0-9]+-s[0-9]{3,4}-b[0-9]+$"
   },
   "heat_id": {
    "type": "string"
   },
   "course_id": {
-   "type": "string"
+   "const": "mesa-island-race-v2"
   },
   "course_version": {
-   "type": "integer",
-   "minimum": 1
+   "const": 2
   },
   "bot_model": {
    "enum": [
-    "beetle_walker",
-    "flying_beetle",
-    "triathlete",
-    "wing_swarm",
-    "curvity_scout",
-    "seed_bot"
+    "wing_swarm"
    ]
   },
   "bot_slot": {
@@ -79,7 +74,7 @@
     "N0"
    ],
    "propertyNames": {
-    "pattern": "^N[0-9]+b?$"
+    "pattern": "^N[0-6]$"
    },
    "additionalProperties": {
     "type": "number",
@@ -108,7 +103,6 @@
   "status": {
    "enum": [
     "finished",
-    "rescued",
     "dnf"
    ]
   },
@@ -181,17 +175,14 @@
     "properties": {
      "node_id": {
       "type": "string",
-      "pattern": "^N[0-9]+b?$"
+      "pattern": "^N[0-6]$"
      },
      "type": {
       "enum": [
        "start",
-       "swim",
-       "side_objective",
        "obstacle_lane",
-       "hop",
-       "gates",
-       "loop",
+       "return_leg",
+       "gust_shore",
        "climb",
        "finish"
       ]
@@ -268,22 +259,66 @@
   },
   "source": {
    "enum": [
-    "sim-bank",
+    "sim-v2",
     "clawblox-live"
    ],
-   "description": "sim-bank: resampled measured sim records (runner/run_race.py); clawblox-live: times read from the Clawblox world's own node log (clawblox/race_live.py)"
+   "description": "sim-v2: runner/squall_sim.py held-out evaluation heats (15 bots); clawblox-live: times read from the v2 Clawblox world's own node log (clawblox/race_live_v2.py, 5 bots)"
   },
   "dnf_at": {
    "type": [
     "string",
     "null"
    ],
-   "pattern": "^N[0-9]+b?$",
+   "pattern": "^N[0-6]$",
    "description": "node the bot was in (or last left) when it stopped; only for status dnf"
   },
   "in_world": {
    "type": "object",
    "description": "live-run details: port, speed_scale, gate log, laps, energy, driver notes"
+  },
+  "dnf_reason": {
+   "enum": [
+    "water",
+    "energy",
+    "cap",
+    "fell"
+   ],
+   "description": "water: centre entered the bay (lost); energy: downed at E <= 0; cap: not at the summit by squall arrival + 60 s; fell: dropped off the island (live only)"
+  },
+  "boundary": {
+   "type": "object",
+   "required": [
+    "energy_end",
+    "outside_s",
+    "exits"
+   ],
+   "properties": {
+    "energy_end": {
+     "type": "number"
+    },
+    "outside_s": {
+     "type": "number",
+     "minimum": 0
+    },
+    "exits": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "heat_formation_breaks": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "heat_gust_peak": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "config": {
+     "type": "object"
+    }
+   },
+   "description": "squall-line metrics for this bot (energy left, seconds outside the disc, disc exits) and heat-level formation breaks"
   }
  },
  "$defs": {
@@ -330,12 +365,11 @@
        "N3",
        "N4",
        "N5",
-       "N6",
-       "N7"
+       "N6"
       ]
      },
      "node_tree": {
-      "minItems": 8
+      "minItems": 7
      }
     }
    }
@@ -350,7 +384,8 @@
    },
    "then": {
     "required": [
-     "dnf_at"
+     "dnf_at",
+     "dnf_reason"
     ]
    }
   }

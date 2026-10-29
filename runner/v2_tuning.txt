@@ -1,0 +1,13 @@
+tuning seeds 0-11, 15 bots, pace 3.0
+gust_mu=0.0 R_min=3.0: completion 0.74 lost 0.8 downed 3.2 exits 32.1 breaks 6.2
+gust_mu=0.0 R_min=4.5: completion 0.86 lost 0.9 downed 1.2 exits 14.7 breaks 6.2
+gust_mu=2.0 R_min=3.0: completion 0.58 lost 3.9 downed 2.3 exits 26.2 breaks 6.2
+gust_mu=2.0 R_min=4.5: completion 0.66 lost 3.9 downed 1.2 exits 11.4 breaks 6.2
+gust_mu=3.0 R_min=3.0: completion 0.50 lost 5.3 downed 2.2 exits 24.9 breaks 6.2
+gust_mu=3.0 R_min=4.5: completion 0.53 lost 5.8 downed 1.2 exits 10.8 breaks 6.2
+gust_mu=4.0 R_min=3.0: completion 0.38 lost 7.4 downed 1.9 exits 23.1 breaks 6.3
+gust_mu=4.0 R_min=4.5: completion 0.41 lost 7.8 downed 1.2 exits 10.2 breaks 6.2
+gust_mu=5.0 R_min=3.0: completion 0.26 lost 9.6 downed 1.6 exits 20.3 breaks 6.3
+gust_mu=5.0 R_min=4.5: completion 0.24 lost 10.3 downed 1.1 exits 10.3 breaks 6.2
+gust_mu=6.0 R_min=3.0: completion 0.04 lost 12.9 downed 1.4 exits 16.0 breaks 6.2
+gust_mu=6.0 R_min=4.5: completion 0.04 lost 13.2 downed 1.2 exits 9.8 breaks 6.2

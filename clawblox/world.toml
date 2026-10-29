@@ -1,5 +1,5 @@
-name = "Mesa Island Race Course"
-description = "Island race course on the Mesa World island: reef swim, runway with a crashed plane, drone gates, COTA loop, hill with tunnels. Built from course.json."
+name = "Mesa Island Race Course v2"
+description = "Mesa Island Race Course v2: wing swarm only, reef removed, squall-line boundary (moving shrinking disc + gust shore over open water), hill tunnels. Built from course.json."
 max_players = 5
 afk_timeout = 0
 
