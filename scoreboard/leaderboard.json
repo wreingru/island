@@ -1,0 +1,235 @@
+{
+ "generated_at": "2026-10-29T21:41:21+00:00",
+ "rows": 150,
+ "top": [
+  {
+   "run_id": "irc-v1-wing_swarm-s000-b3",
+   "bot_name": "wing_swarm-3",
+   "bot_model": "wing_swarm",
+   "seed": 0,
+   "total_time_s": 165.51,
+   "raw_time_s": 105.51,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s000-b0",
+   "bot_name": "wing_swarm-0",
+   "bot_model": "wing_swarm",
+   "seed": 0,
+   "total_time_s": 168.17,
+   "raw_time_s": 108.17,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s003-b3",
+   "bot_name": "wing_swarm-3",
+   "bot_model": "wing_swarm",
+   "seed": 3,
+   "total_time_s": 168.9,
+   "raw_time_s": 108.9,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s001-b2",
+   "bot_name": "wing_swarm-2",
+   "bot_model": "wing_swarm",
+   "seed": 1,
+   "total_time_s": 168.94,
+   "raw_time_s": 108.94,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s003-b0",
+   "bot_name": "wing_swarm-0",
+   "bot_model": "wing_swarm",
+   "seed": 3,
+   "total_time_s": 169.08,
+   "raw_time_s": 109.08,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s001-b3",
+   "bot_name": "wing_swarm-3",
+   "bot_model": "wing_swarm",
+   "seed": 1,
+   "total_time_s": 169.25,
+   "raw_time_s": 109.25,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s003-b2",
+   "bot_name": "wing_swarm-2",
+   "bot_model": "wing_swarm",
+   "seed": 3,
+   "total_time_s": 169.77,
+   "raw_time_s": 109.77,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s000-b1",
+   "bot_name": "wing_swarm-1",
+   "bot_model": "wing_swarm",
+   "seed": 0,
+   "total_time_s": 169.95,
+   "raw_time_s": 109.95,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s005-b1",
+   "bot_name": "wing_swarm-1",
+   "bot_model": "wing_swarm",
+   "seed": 5,
+   "total_time_s": 170.09,
+   "raw_time_s": 110.09,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s002-b3",
+   "bot_name": "wing_swarm-3",
+   "bot_model": "wing_swarm",
+   "seed": 2,
+   "total_time_s": 171.04,
+   "raw_time_s": 111.04,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s005-b3",
+   "bot_name": "wing_swarm-3",
+   "bot_model": "wing_swarm",
+   "seed": 5,
+   "total_time_s": 171.07,
+   "raw_time_s": 111.07,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s003-b1",
+   "bot_name": "wing_swarm-1",
+   "bot_model": "wing_swarm",
+   "seed": 3,
+   "total_time_s": 171.29,
+   "raw_time_s": 111.29,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s002-b2",
+   "bot_name": "wing_swarm-2",
+   "bot_model": "wing_swarm",
+   "seed": 2,
+   "total_time_s": 171.3,
+   "raw_time_s": 111.3,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s000-b2",
+   "bot_name": "wing_swarm-2",
+   "bot_model": "wing_swarm",
+   "seed": 0,
+   "total_time_s": 171.52,
+   "raw_time_s": 111.52,
+   "status": "finished"
+  },
+  {
+   "run_id": "irc-v1-wing_swarm-s005-b2",
+   "bot_name": "wing_swarm-2",
+   "bot_model": "wing_swarm",
+   "seed": 5,
+   "total_time_s": 171.7,
+   "raw_time_s": 111.7,
+   "status": "finished"
+  }
+ ],
+ "models": [
+  {
+   "model": "beetle_walker",
+   "rows": 30,
+   "best_s": 446.9,
+   "median_s": 470.33,
+   "worst_s": 504.81,
+   "reef_holds": 6,
+   "rescued": 0,
+   "median_splits": {
+    "N1": 12.0,
+    "N1b": 61.11,
+    "N2": 80.0,
+    "N3": 21.2,
+    "N4": 73.33,
+    "N5": 170.8,
+    "N6": 52.28
+   }
+  },
+  {
+   "model": "flying_beetle",
+   "rows": 30,
+   "best_s": 408.57,
+   "median_s": 427.31,
+   "worst_s": 472.42,
+   "reef_holds": 6,
+   "rescued": 0,
+   "median_splits": {
+    "N1": 12.0,
+    "N1b": 61.11,
+    "N2": 77.2,
+    "N3": 18.8,
+    "N4": 75.7,
+    "N5": 170.8,
+    "N6": 52.28
+   }
+  },
+  {
+   "model": "triathlete",
+   "rows": 30,
+   "best_s": 423.32,
+   "median_s": 446.78,
+   "worst_s": 489.47,
+   "reef_holds": 0,
+   "rescued": 0,
+   "median_splits": {
+    "N1": 49.0,
+    "N2": 76.66,
+    "N3": 19.98,
+    "N4": 70.97,
+    "N5": 141.57,
+    "N6": 51.05
+   }
+  },
+  {
+   "model": "wing_swarm",
+   "rows": 30,
+   "best_s": 165.51,
+   "median_s": 171.9,
+   "worst_s": 181.31,
+   "reef_holds": 0,
+   "rescued": 0,
+   "median_splits": {
+    "N1": 3.27,
+    "N2": 21.82,
+    "N3": 5.78,
+    "N4": 20.0,
+    "N5": 46.58,
+    "N6": 14.26
+   }
+  },
+  {
+   "model": "curvity_scout",
+   "rows": 30,
+   "best_s": 404.96,
+   "median_s": 419.08,
+   "worst_s": 443.27,
+   "reef_holds": 6,
+   "rescued": 0,
+   "median_splits": {
+    "N1": 9.6,
+    "N1b": 50.89,
+    "N2": 90.23,
+    "N3": 23.57,
+    "N4": 58.67,
+    "N5": 136.64,
+    "N6": 41.82
+   }
+  },
+  {
+   "model": "seed_bot",
+   "rows": 0
+  }
+ ]
+}
