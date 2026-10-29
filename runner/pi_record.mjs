@@ -1,5 +1,5 @@
 // Record race heats as Pi session trees with @earendil-works/pi-coding-agent SessionManager.
-// stdin: {root, heats:[{heat_id, model, seed, course_id, bots:[{run_id, bot_name, nodes:[{node_id,parent_node_id,branch,data}], total_time_s}]}]}
+// argv[2]: path to a JSON file {root, heats:[{heat_id, model, seed, course_id, bots:[{run_id, bot_name, nodes:[{node_id,parent_node_id,branch,data}], total_time_s}]}]}
 // stdout: {run_id: {session_id, session_file, parent_session_id, parent_session_file, pi_package, entries:{node_id:{id,parentId}}}}
 // No LLM runs here: entries are written straight into the session files.
 import { SessionManager } from "@earendil-works/pi-coding-agent";
@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 
-const input = JSON.parse(readFileSync(0, "utf8"));
+const input = JSON.parse(readFileSync(process.argv[2], "utf8"));
 const root = input.root;
 const dir = path.join(root, "runner", "pi_sessions");
 const rel = (p) => path.relative(root, p);

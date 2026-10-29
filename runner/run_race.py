@@ -173,9 +173,13 @@ def commit_sha():
 def record_pi(heats):
     node_bin = os.environ.get("NODE_BIN", "/workspace/island_swarm/tools/node-v22.20.0-linux-x64/bin/node")
     script = os.path.join(ROOT, "runner", "pi_record.mjs")
+    import tempfile
     try:
-        out = subprocess.run([node_bin, script], input=json.dumps({"root": ROOT, "heats": heats}), text=True,
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as tf:
+            json.dump({"root": ROOT, "heats": heats}, tf)
+        out = subprocess.run([node_bin, script, tf.name], text=True,
                              capture_output=True, cwd=os.path.join(ROOT, "runner"), timeout=300)
+        os.unlink(tf.name)
         if out.returncode != 0:
             raise RuntimeError(out.stderr[-500:])
         return json.loads(out.stdout)
