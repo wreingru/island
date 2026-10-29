@@ -1,0 +1,30 @@
+name: scoreboard
+on:
+  push:
+    paths: ["scoreboard/results.jsonl", "schema/**", "course.json", "scoreboard/*.py"]
+  pull_request:
+    paths: ["scoreboard/results.jsonl", "schema/**", "course.json"]
+permissions:
+  contents: write
+jobs:
+  validate-and-regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema==4.*
+      - name: Validate results against the schema
+        run: python scoreboard/validate_results.py
+      - name: Regenerate SCOREBOARD.md
+        run: python scoreboard/generate_scoreboard.py
+      - name: Commit the regenerated scoreboard (push events only)
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet -- scoreboard/SCOREBOARD.md scoreboard/leaderboard.json; then echo "scoreboard unchanged"; exit 0; fi
+          git config user.name "scoreboard-bot"
+          git config user.email "scoreboard-bot@users.noreply.github.com"
+          git add scoreboard/SCOREBOARD.md scoreboard/leaderboard.json
+          git commit -m "scoreboard: regenerate [skip ci]"
+          git push
