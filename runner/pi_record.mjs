@@ -3,7 +3,7 @@
 // stdout: {run_id: {session_id, session_file, parent_session_id, parent_session_file, pi_package, entries:{node_id:{id,parentId}}}}
 // No LLM runs here: entries are written straight into the session files.
 import { SessionManager } from "@earendil-works/pi-coding-agent";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 
@@ -13,7 +13,12 @@ const dir = path.join(root, "runner", "pi_sessions");
 const rel = (p) => path.relative(root, p);
 const require = createRequire(import.meta.url);
 let pkg = "@earendil-works/pi-coding-agent";
-try { pkg += "@" + require("@earendil-works/pi-coding-agent/package.json").version; } catch { /* exports may hide package.json */ }
+try {
+  const main = require.resolve("@earendil-works/pi-coding-agent");
+  let d = path.dirname(main);
+  while (d !== path.dirname(d) && !existsSync(path.join(d, "package.json"))) d = path.dirname(d);
+  pkg += "@" + JSON.parse(readFileSync(path.join(d, "package.json"), "utf8")).version;
+} catch { /* version unknown */ }
 const user = (text) => ({ role: "user", content: [{ type: "text", text }], timestamp: Date.now() });
 const out = {};
 
