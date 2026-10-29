@@ -1,551 +1,737 @@
 {
- "generated_at": "2026-10-29T22:27:27+00:00",
- "rows": 150,
- "top": [
+ "generated_from": "scoreboard/results.jsonl",
+ "course_id": "mesa-island-race-v2",
+ "rows": 605,
+ "heats": [
   {
-   "run_id": "irc-v1-wing_swarm-s000-b3",
-   "bot_name": "wing_swarm-3",
-   "bot_model": "wing_swarm",
-   "seed": 0,
-   "total_time_s": 165.51,
-   "raw_time_s": 105.51,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1000",
+   "finished": 7,
+   "bots": 15,
+   "lost": 6,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 3
   },
   {
-   "run_id": "irc-v1-wing_swarm-s000-b0",
-   "bot_name": "wing_swarm-0",
-   "bot_model": "wing_swarm",
-   "seed": 0,
-   "total_time_s": 168.17,
-   "raw_time_s": 108.17,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1001",
+   "finished": 4,
+   "bots": 15,
+   "lost": 8,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 9
   },
   {
-   "run_id": "irc-v1-wing_swarm-s003-b3",
-   "bot_name": "wing_swarm-3",
-   "bot_model": "wing_swarm",
-   "seed": 3,
-   "total_time_s": 168.9,
-   "raw_time_s": 108.9,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1002",
+   "finished": 9,
+   "bots": 15,
+   "lost": 5,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 10
   },
   {
-   "run_id": "irc-v1-wing_swarm-s001-b2",
-   "bot_name": "wing_swarm-2",
-   "bot_model": "wing_swarm",
-   "seed": 1,
-   "total_time_s": 168.94,
-   "raw_time_s": 108.94,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1003",
+   "finished": 9,
+   "bots": 15,
+   "lost": 5,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 8
   },
   {
-   "run_id": "irc-v1-wing_swarm-s003-b0",
-   "bot_name": "wing_swarm-0",
-   "bot_model": "wing_swarm",
-   "seed": 3,
-   "total_time_s": 169.08,
-   "raw_time_s": 109.08,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1004",
+   "finished": 5,
+   "bots": 15,
+   "lost": 5,
+   "downed": 5,
+   "cap": 0,
+   "best_s": 115.4,
+   "formation_breaks": 11
   },
   {
-   "run_id": "irc-v1-wing_swarm-s001-b3",
-   "bot_name": "wing_swarm-3",
-   "bot_model": "wing_swarm",
-   "seed": 1,
-   "total_time_s": 169.25,
-   "raw_time_s": 109.25,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1005",
+   "finished": 5,
+   "bots": 15,
+   "lost": 9,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 5
   },
   {
-   "run_id": "irc-v1-wing_swarm-s003-b2",
-   "bot_name": "wing_swarm-2",
-   "bot_model": "wing_swarm",
-   "seed": 3,
-   "total_time_s": 169.77,
-   "raw_time_s": 109.77,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1006",
+   "finished": 10,
+   "bots": 15,
+   "lost": 3,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 115.4,
+   "formation_breaks": 5
   },
   {
-   "run_id": "irc-v1-wing_swarm-s000-b1",
-   "bot_name": "wing_swarm-1",
-   "bot_model": "wing_swarm",
-   "seed": 0,
-   "total_time_s": 169.95,
-   "raw_time_s": 109.95,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1007",
+   "finished": 7,
+   "bots": 15,
+   "lost": 7,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 11
   },
   {
-   "run_id": "irc-v1-wing_swarm-s005-b1",
-   "bot_name": "wing_swarm-1",
-   "bot_model": "wing_swarm",
-   "seed": 5,
-   "total_time_s": 170.09,
-   "raw_time_s": 110.09,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1008",
+   "finished": 4,
+   "bots": 15,
+   "lost": 9,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 115.5,
+   "formation_breaks": 13
   },
   {
-   "run_id": "irc-v1-wing_swarm-s002-b3",
-   "bot_name": "wing_swarm-3",
-   "bot_model": "wing_swarm",
-   "seed": 2,
-   "total_time_s": 171.04,
-   "raw_time_s": 111.04,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1009",
+   "finished": 7,
+   "bots": 15,
+   "lost": 5,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 20
   },
   {
-   "run_id": "irc-v1-wing_swarm-s005-b3",
-   "bot_name": "wing_swarm-3",
-   "bot_model": "wing_swarm",
-   "seed": 5,
-   "total_time_s": 171.07,
-   "raw_time_s": 111.07,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1010",
+   "finished": 5,
+   "bots": 15,
+   "lost": 5,
+   "downed": 5,
+   "cap": 0,
+   "best_s": 115.3,
+   "formation_breaks": 2
   },
   {
-   "run_id": "irc-v1-wing_swarm-s003-b1",
-   "bot_name": "wing_swarm-1",
-   "bot_model": "wing_swarm",
-   "seed": 3,
-   "total_time_s": 171.29,
-   "raw_time_s": 111.29,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1011",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 5
   },
   {
-   "run_id": "irc-v1-wing_swarm-s002-b2",
-   "bot_name": "wing_swarm-2",
-   "bot_model": "wing_swarm",
-   "seed": 2,
-   "total_time_s": 171.3,
-   "raw_time_s": 111.3,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1012",
+   "finished": 9,
+   "bots": 15,
+   "lost": 6,
+   "downed": 0,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 9
   },
   {
-   "run_id": "irc-v1-wing_swarm-s000-b2",
-   "bot_name": "wing_swarm-2",
-   "bot_model": "wing_swarm",
-   "seed": 0,
-   "total_time_s": 171.52,
-   "raw_time_s": 111.52,
-   "status": "finished"
+   "heat_id": "irc-v2-sim-s1013",
+   "finished": 6,
+   "bots": 15,
+   "lost": 7,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 6
   },
   {
-   "run_id": "irc-v1-wing_swarm-s005-b2",
-   "bot_name": "wing_swarm-2",
-   "bot_model": "wing_swarm",
-   "seed": 5,
-   "total_time_s": 171.7,
-   "raw_time_s": 111.7,
-   "status": "finished"
-  }
- ],
- "models": [
-  {
-   "model": "beetle_walker",
-   "rows": 30,
-   "best_s": 446.9,
-   "median_s": 470.33,
-   "worst_s": 504.81,
-   "reef_holds": 6,
-   "rescued": 0,
-   "median_splits": {
-    "N1": 12.0,
-    "N1b": 61.11,
-    "N2": 80.0,
-    "N3": 21.2,
-    "N4": 73.33,
-    "N5": 170.8,
-    "N6": 52.28
-   }
+   "heat_id": "irc-v2-sim-s1014",
+   "finished": 10,
+   "bots": 15,
+   "lost": 5,
+   "downed": 0,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 8
   },
   {
-   "model": "flying_beetle",
-   "rows": 30,
-   "best_s": 408.57,
-   "median_s": 427.31,
-   "worst_s": 472.42,
-   "reef_holds": 6,
-   "rescued": 0,
-   "median_splits": {
-    "N1": 12.0,
-    "N1b": 61.11,
-    "N2": 77.2,
-    "N3": 18.8,
-    "N4": 75.7,
-    "N5": 170.8,
-    "N6": 52.28
-   }
+   "heat_id": "irc-v2-sim-s1015",
+   "finished": 7,
+   "bots": 15,
+   "lost": 5,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 115.2,
+   "formation_breaks": 6
   },
   {
-   "model": "triathlete",
-   "rows": 30,
-   "best_s": 423.32,
-   "median_s": 446.78,
-   "worst_s": 489.47,
-   "reef_holds": 0,
-   "rescued": 0,
-   "median_splits": {
-    "N1": 49.0,
-    "N2": 76.66,
-    "N3": 19.98,
-    "N4": 70.97,
-    "N5": 141.57,
-    "N6": 51.05
-   }
+   "heat_id": "irc-v2-sim-s1016",
+   "finished": 9,
+   "bots": 15,
+   "lost": 5,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 5
   },
   {
-   "model": "wing_swarm",
-   "rows": 30,
-   "best_s": 165.51,
-   "median_s": 171.9,
-   "worst_s": 181.31,
-   "reef_holds": 0,
-   "rescued": 0,
-   "median_splits": {
-    "N1": 3.27,
-    "N2": 21.82,
-    "N3": 5.78,
-    "N4": 20.0,
-    "N5": 46.58,
-    "N6": 14.26
-   }
+   "heat_id": "irc-v2-sim-s1017",
+   "finished": 5,
+   "bots": 15,
+   "lost": 9,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 4
   },
   {
-   "model": "curvity_scout",
-   "rows": 30,
-   "best_s": 404.96,
-   "median_s": 419.08,
-   "worst_s": 443.27,
-   "reef_holds": 6,
-   "rescued": 0,
-   "median_splits": {
-    "N1": 9.6,
-    "N1b": 50.89,
-    "N2": 90.23,
-    "N3": 23.57,
-    "N4": 58.67,
-    "N5": 136.64,
-    "N6": 41.82
-   }
+   "heat_id": "irc-v2-sim-s1018",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 5
   },
   {
-   "model": "seed_bot",
-   "rows": 0
+   "heat_id": "irc-v2-sim-s1019",
+   "finished": 7,
+   "bots": 15,
+   "lost": 5,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 9
+  },
+  {
+   "heat_id": "irc-v2-sim-s1020",
+   "finished": 7,
+   "bots": 15,
+   "lost": 8,
+   "downed": 0,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 4
+  },
+  {
+   "heat_id": "irc-v2-sim-s1021",
+   "finished": 8,
+   "bots": 15,
+   "lost": 4,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 3
+  },
+  {
+   "heat_id": "irc-v2-sim-s1022",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 11
+  },
+  {
+   "heat_id": "irc-v2-sim-s1023",
+   "finished": 5,
+   "bots": 15,
+   "lost": 5,
+   "downed": 5,
+   "cap": 0,
+   "best_s": 115.4,
+   "formation_breaks": 4
+  },
+  {
+   "heat_id": "irc-v2-sim-s1024",
+   "finished": 4,
+   "bots": 15,
+   "lost": 8,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 6
+  },
+  {
+   "heat_id": "irc-v2-sim-s1025",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 11
+  },
+  {
+   "heat_id": "irc-v2-sim-s1026",
+   "finished": 5,
+   "bots": 15,
+   "lost": 9,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 3
+  },
+  {
+   "heat_id": "irc-v2-sim-s1027",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 4
+  },
+  {
+   "heat_id": "irc-v2-sim-s1028",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 115.4,
+   "formation_breaks": 12
+  },
+  {
+   "heat_id": "irc-v2-sim-s1029",
+   "finished": 8,
+   "bots": 15,
+   "lost": 4,
+   "downed": 3,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 9
+  },
+  {
+   "heat_id": "irc-v2-sim-s1030",
+   "finished": 6,
+   "bots": 15,
+   "lost": 5,
+   "downed": 4,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 5
+  },
+  {
+   "heat_id": "irc-v2-sim-s1031",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 6
+  },
+  {
+   "heat_id": "irc-v2-sim-s1032",
+   "finished": 9,
+   "bots": 15,
+   "lost": 5,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 5
+  },
+  {
+   "heat_id": "irc-v2-sim-s1033",
+   "finished": 10,
+   "bots": 15,
+   "lost": 5,
+   "downed": 0,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 5
+  },
+  {
+   "heat_id": "irc-v2-sim-s1034",
+   "finished": 13,
+   "bots": 15,
+   "lost": 0,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.5,
+   "formation_breaks": 7
+  },
+  {
+   "heat_id": "irc-v2-sim-s1035",
+   "finished": 4,
+   "bots": 15,
+   "lost": 10,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.9,
+   "formation_breaks": 13
+  },
+  {
+   "heat_id": "irc-v2-sim-s1036",
+   "finished": 8,
+   "bots": 15,
+   "lost": 6,
+   "downed": 1,
+   "cap": 0,
+   "best_s": 114.8,
+   "formation_breaks": 9
+  },
+  {
+   "heat_id": "irc-v2-sim-s1037",
+   "finished": 5,
+   "bots": 15,
+   "lost": 8,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 114.7,
+   "formation_breaks": 4
+  },
+  {
+   "heat_id": "irc-v2-sim-s1038",
+   "finished": 8,
+   "bots": 15,
+   "lost": 5,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 115.3,
+   "formation_breaks": 8
+  },
+  {
+   "heat_id": "irc-v2-sim-s1039",
+   "finished": 9,
+   "bots": 15,
+   "lost": 4,
+   "downed": 2,
+   "cap": 0,
+   "best_s": 115.3,
+   "formation_breaks": 12
   }
  ],
  "live": [
   {
-   "run_id": "irc-v1-live-s101-b0",
-   "heat_id": "irc-v1-live-s101",
-   "bot_name": "wing_swarm-s101",
-   "bot_model": "wing_swarm",
-   "seed": 101,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 184.02,
-   "raw_time_s": 124.02,
-   "node_splits": {
-    "N0": 0,
-    "N1": 3.1,
-    "N2": 12.63,
-    "N3": 8.54,
-    "N4": 33.43,
-    "N5": 60.23,
-    "N6": 6.09,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s101-b1",
-   "heat_id": "irc-v1-live-s101",
-   "bot_name": "flying_beetle-s101",
-   "bot_model": "flying_beetle",
-   "seed": 101,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 456.88,
-   "raw_time_s": 476.88,
-   "node_splits": {
-    "N0": 0,
-    "N1": 11.54,
-    "N1b": 14.51,
-    "N2": 45.53,
-    "N3": 21.87,
-    "N4": 168.8,
-    "N5": 168.63,
-    "N6": 46,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s101-b2",
-   "heat_id": "irc-v1-live-s101",
-   "bot_name": "triathlete-s101",
-   "bot_model": "triathlete",
-   "seed": 101,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 573.99,
-   "raw_time_s": 533.99,
-   "node_splits": {
-    "N0": 0,
-    "N1": 17.93,
-    "N2": 44.18,
-    "N3": 36.84,
-    "N4": 123.99,
-    "N5": 242.63,
-    "N6": 68.42,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s101-b3",
-   "heat_id": "irc-v1-live-s101",
-   "bot_name": "curvity_scout-s101",
-   "bot_model": "curvity_scout",
-   "seed": 101,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 405.88,
-   "raw_time_s": 345.88,
-   "node_splits": {
-    "N0": 0,
-    "N1": 11.2,
-    "N2": 36.49,
-    "N3": 24.75,
-    "N4": 86.29,
-    "N5": 154.06,
-    "N6": 33.09,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s101-b4",
-   "heat_id": "irc-v1-live-s101",
-   "bot_name": "beetle_walker-s101",
-   "bot_model": "beetle_walker",
-   "seed": 101,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 508.49,
-   "raw_time_s": 448.49,
-   "node_splits": {
-    "N0": 0,
-    "N1": 13.23,
-    "N2": 46.45,
-    "N3": 33.08,
-    "N4": 137.98,
-    "N5": 194.81,
-    "N6": 22.94,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s102-b0",
-   "heat_id": "irc-v1-live-s102",
-   "bot_name": "flying_beetle-s102",
-   "bot_model": "flying_beetle",
-   "seed": 102,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 446.13,
-   "raw_time_s": 476.13,
-   "node_splits": {
-    "N0": 0,
-    "N1": 11.55,
-    "N1b": 10.01,
-    "N2": 45.66,
-    "N3": 21.9,
-    "N4": 92.54,
-    "N5": 204.12,
-    "N6": 90.35,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s102-b1",
-   "heat_id": "irc-v1-live-s102",
-   "bot_name": "triathlete-s102",
-   "bot_model": "triathlete",
-   "seed": 102,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 525.0,
-   "raw_time_s": 485.0,
-   "node_splits": {
-    "N0": 0,
-    "N1": 17.74,
-    "N2": 44.64,
-    "N3": 29.94,
-    "N4": 103.76,
-    "N5": 226.65,
-    "N6": 62.27,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s102-b2",
-   "heat_id": "irc-v1-live-s102",
-   "bot_name": "beetle_walker-s102",
-   "bot_model": "beetle_walker",
-   "seed": 102,
+   "run_id": "irc-v2-live-s2005-b0",
+   "heat_id": "irc-v2-live-s2005",
+   "bot_name": "wing_swarm-0",
    "status": "dnf",
-   "dnf_at": "N6",
-   "total_time_s": 547.5,
-   "raw_time_s": 487.5,
+   "dnf_at": "N4",
+   "dnf_reason": "water",
+   "total_time_s": 89.84,
    "node_splits": {
-    "N0": 0,
-    "N1": 16.4,
-    "N2": 45.63,
-    "N3": 30.93,
-    "N4": 134.87,
-    "N5": 259.67
+    "N0": 10.19,
+    "N1": 21.7,
+    "N2": 20.93,
+    "N3": 37.02
+   },
+   "boundary": {
+    "energy_end": 8.18,
+    "outside_s": 12.63,
+    "exits": 5,
+    "heat_formation_breaks": 2,
+    "heat_gust_peak": null,
+    "config": {
+     "v_b": 3.0,
+     "R0": 14.0,
+     "R_min": 3.0,
+     "gust_mu": 3.0,
+     "gust_sigma": 1.5,
+     "out_drain": 6.0,
+     "base_drain": 0.1,
+     "effort": 0.004
+    }
    }
   },
   {
-   "run_id": "irc-v1-live-s102-b3",
-   "heat_id": "irc-v1-live-s102",
-   "bot_name": "curvity_scout-s102",
-   "bot_model": "curvity_scout",
-   "seed": 102,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 408.38,
-   "raw_time_s": 348.38,
-   "node_splits": {
-    "N0": 0,
-    "N1": 18.5,
-    "N2": 45.66,
-    "N3": 31.5,
-    "N4": 75.23,
-    "N5": 143.33,
-    "N6": 34.16,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s102-b4",
-   "heat_id": "irc-v1-live-s102",
-   "bot_name": "wing_swarm-s102",
-   "bot_model": "wing_swarm",
-   "seed": 102,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 217.54,
-   "raw_time_s": 157.54,
-   "node_splits": {
-    "N0": 0,
-    "N1": 3.41,
-    "N2": 12.61,
-    "N3": 8.75,
-    "N4": 26.72,
-    "N5": 99.98,
-    "N6": 6.07,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s103-b0",
-   "heat_id": "irc-v1-live-s103",
-   "bot_name": "curvity_scout-s103",
-   "bot_model": "curvity_scout",
-   "seed": 103,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 397.67,
-   "raw_time_s": 397.67,
-   "node_splits": {
-    "N0": 0,
-    "N1": 9.15,
-    "N1b": 14,
-    "N2": 36.51,
-    "N3": 24.83,
-    "N4": 80.87,
-    "N5": 198.24,
-    "N6": 34.07,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s103-b1",
-   "heat_id": "irc-v1-live-s103",
-   "bot_name": "flying_beetle-s103",
-   "bot_model": "flying_beetle",
-   "seed": 103,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 441.56,
-   "raw_time_s": 411.56,
-   "node_splits": {
-    "N0": 0,
-    "N1": 11.52,
-    "N2": 45.64,
-    "N3": 21.9,
-    "N4": 101.86,
-    "N5": 197.58,
-    "N6": 33.06,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s103-b2",
-   "heat_id": "irc-v1-live-s103",
-   "bot_name": "triathlete-s103",
-   "bot_model": "triathlete",
-   "seed": 103,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 561.84,
-   "raw_time_s": 521.84,
-   "node_splits": {
-    "N0": 0,
-    "N1": 18.09,
-    "N2": 44.16,
-    "N3": 29.97,
-    "N4": 113.04,
-    "N5": 263.38,
-    "N6": 53.2,
-    "N7": 0
-   }
-  },
-  {
-   "run_id": "irc-v1-live-s103-b3",
-   "heat_id": "irc-v1-live-s103",
-   "bot_name": "beetle_walker-s103",
-   "bot_model": "beetle_walker",
-   "seed": 103,
+   "run_id": "irc-v2-live-s2005-b1",
+   "heat_id": "irc-v2-live-s2005",
+   "bot_name": "wing_swarm-1",
    "status": "dnf",
-   "dnf_at": "N6",
-   "total_time_s": 524.75,
-   "raw_time_s": 464.75,
+   "dnf_at": "N3",
+   "dnf_reason": "energy",
+   "total_time_s": 49.38,
    "node_splits": {
-    "N0": 0,
-    "N1": 34.98,
-    "N2": 45.7,
-    "N3": 30.95,
-    "N4": 105.92,
-    "N5": 247.2
+    "N0": 10.09,
+    "N1": 23.01,
+    "N2": 16.28
+   },
+   "boundary": {
+    "energy_end": -0.01,
+    "outside_s": 13.8,
+    "exits": 1,
+    "heat_formation_breaks": 2,
+    "heat_gust_peak": null,
+    "config": {
+     "v_b": 3.0,
+     "R0": 14.0,
+     "R_min": 3.0,
+     "gust_mu": 3.0,
+     "gust_sigma": 1.5,
+     "out_drain": 6.0,
+     "base_drain": 0.1,
+     "effort": 0.004
+    }
    }
   },
   {
-   "run_id": "irc-v1-live-s103-b4",
-   "heat_id": "irc-v1-live-s103",
-   "bot_name": "wing_swarm-s103",
-   "bot_model": "wing_swarm",
-   "seed": 103,
-   "status": "finished",
-   "dnf_at": null,
-   "total_time_s": 258.3,
-   "raw_time_s": 198.3,
+   "run_id": "irc-v2-live-s2005-b2",
+   "heat_id": "irc-v2-live-s2005",
+   "bot_name": "wing_swarm-2",
+   "status": "dnf",
+   "dnf_at": "N2",
+   "dnf_reason": "energy",
+   "total_time_s": 32.8,
    "node_splits": {
-    "N0": 0,
-    "N1": 7.08,
-    "N2": 44.82,
-    "N3": 22.81,
-    "N4": 54.48,
-    "N5": 61.41,
-    "N6": 7.7,
-    "N7": 0
+    "N0": 11.75,
+    "N1": 21.05
+   },
+   "boundary": {
+    "energy_end": -0.06,
+    "outside_s": 15.03,
+    "exits": 1,
+    "heat_formation_breaks": 2,
+    "heat_gust_peak": null,
+    "config": {
+     "v_b": 3.0,
+     "R0": 14.0,
+     "R_min": 3.0,
+     "gust_mu": 3.0,
+     "gust_sigma": 1.5,
+     "out_drain": 6.0,
+     "base_drain": 0.1,
+     "effort": 0.004
+    }
+   }
+  },
+  {
+   "run_id": "irc-v2-live-s2005-b3",
+   "heat_id": "irc-v2-live-s2005",
+   "bot_name": "wing_swarm-3",
+   "status": "dnf",
+   "dnf_at": "N2",
+   "dnf_reason": "energy",
+   "total_time_s": 38.84,
+   "node_splits": {
+    "N0": 11.77,
+    "N1": 27.07
+   },
+   "boundary": {
+    "energy_end": -0.03,
+    "outside_s": 15.1,
+    "exits": 3,
+    "heat_formation_breaks": 2,
+    "heat_gust_peak": null,
+    "config": {
+     "v_b": 3.0,
+     "R0": 14.0,
+     "R_min": 3.0,
+     "gust_mu": 3.0,
+     "gust_sigma": 1.5,
+     "out_drain": 6.0,
+     "base_drain": 0.1,
+     "effort": 0.004
+    }
+   }
+  },
+  {
+   "run_id": "irc-v2-live-s2005-b4",
+   "heat_id": "irc-v2-live-s2005",
+   "bot_name": "wing_swarm-4",
+   "status": "dnf",
+   "dnf_at": "N3",
+   "dnf_reason": "energy",
+   "total_time_s": 51.91,
+   "node_splits": {
+    "N0": 11.74,
+    "N1": 23.78,
+    "N2": 16.39
+   },
+   "boundary": {
+    "energy_end": -0.09,
+    "outside_s": 14.03,
+    "exits": 5,
+    "heat_formation_breaks": 2,
+    "heat_gust_peak": null,
+    "config": {
+     "v_b": 3.0,
+     "R0": 14.0,
+     "R_min": 3.0,
+     "gust_mu": 3.0,
+     "gust_sigma": 1.5,
+     "out_drain": 6.0,
+     "base_drain": 0.1,
+     "effort": 0.004
+    }
    }
   }
- ]
+ ],
+ "eval": {
+  "full": {
+   "completion": [
+    0.483,
+    0.442,
+    0.523
+   ],
+   "time_s": [
+    116.217,
+    116.165,
+    116.27
+   ],
+   "exits": [
+    23.425,
+    22.175,
+    24.7
+   ],
+   "outside_s": [
+    70.147,
+    65.375,
+    74.888
+   ],
+   "energy_end": [
+    56.788,
+    54.92,
+    58.66
+   ],
+   "breaks": [
+    7.375,
+    6.275,
+    8.575
+   ],
+   "lost": [
+    5.75,
+    5.175,
+    6.35
+   ],
+   "downed": [
+    2.0,
+    1.625,
+    2.4
+   ]
+  },
+  "squall": {
+   "completion": [
+    0.707,
+    0.658,
+    0.753
+   ],
+   "time_s": [
+    116.223,
+    116.177,
+    116.265
+   ],
+   "exits": [
+    30.3,
+    28.7,
+    31.85
+   ],
+   "outside_s": [
+    84.677,
+    81.2,
+    88.14
+   ],
+   "energy_end": [
+    50.237,
+    48.873,
+    51.614
+   ],
+   "breaks": [
+    7.275,
+    6.175,
+    8.475
+   ],
+   "lost": [
+    1.6,
+    1.049,
+    2.2
+   ],
+   "downed": [
+    2.8,
+    2.375,
+    3.225
+   ]
+  },
+  "off": {
+   "completion": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "time_s": [
+    78.523,
+    78.253,
+    78.805
+   ],
+   "exits": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "outside_s": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "energy_end": [
+    84.855,
+    84.798,
+    84.913
+   ],
+   "breaks": [
+    4.65,
+    4.075,
+    5.25
+   ],
+   "lost": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "downed": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "diffs": {
+  "full minus off": {
+   "completion": [
+    -0.517,
+    -0.558,
+    -0.477
+   ],
+   "time_s": [
+    37.694,
+    37.404,
+    37.971
+   ],
+   "energy_end": [
+    -28.068,
+    -29.914,
+    -26.208
+   ],
+   "breaks": [
+    2.725,
+    1.449,
+    4.075
+   ]
+  },
+  "full minus squall-only": {
+   "completion": [
+    -0.223,
+    -0.26,
+    -0.187
+   ],
+   "lost": [
+    4.15,
+    3.55,
+    4.75
+   ],
+   "downed": [
+    -0.8,
+    -1.1,
+    -0.5
+   ],
+   "exits": [
+    -6.875,
+    -8.375,
+    -5.324
+   ]
+  }
+ }
 }
