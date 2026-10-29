@@ -209,7 +209,7 @@ def main():
                 row = {"schema_version": 1, "run_id": f"{heat_id}-b{slot}", "heat_id": heat_id, "course_id": COURSE["id"],
                        "course_version": COURSE["version"], "bot_model": model, "bot_slot": slot, "bot_name": name, "seed": seed,
                        "release_offset_s": slot * COURSE["timing"]["stagger_s"], **res, "commit_sha": sha, "generated_at": now,
-                       "driver": "deterministic-runner: resampled measured sim records; no LLM, no live physics"}
+                       "source": "sim-bank", "driver": "deterministic-runner: resampled measured sim records; no LLM, no live physics"}
                 rows.append(row)
                 hb.append({"run_id": row["run_id"], "bot_name": name, "nodes": [
                     {"node_id": n["node_id"], "parent_node_id": n["parent_node_id"], "branch": n["branch"],

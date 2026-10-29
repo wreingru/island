@@ -114,6 +114,12 @@ for i, o in ipairs(W.runway_obstacles) do
 end
 -- drone gates: square frame (4 bars) on a post, plus take-off, landing and on-foot check-in pads
 local OPEN = NODES.N4.gate_opening
+-- on-foot check-in pad: 1.5 studs from the post on the take-off side, so walkers reach it without crossing the post
+local function checkinPos(g)
+    local dx, dz = g.takeoff[1] - g.c[1], g.takeoff[2] - g.c[2]
+    local d = math.max(1e-6, math.sqrt(dx * dx + dz * dz))
+    return { g.c[1] + 1.5 * dx / d, g.c[2] + 1.5 * dz / d }
+end
 for _, g in ipairs(NODES.N4.gates) do
     local cx, cz, h = g.c[1], g.c[2], g.h
     local dx, dz = g.landing[1] - g.takeoff[1], g.landing[2] - g.takeoff[2]
@@ -131,7 +137,7 @@ for _, g in ipairs(NODES.N4.gates) do
     end
     pad("Gate" .. g.id .. "_takeoff", g.takeoff, 1.5, Color3.fromRGB(120, 200, 255))
     pad("Gate" .. g.id .. "_landing", g.landing, 1.5, Color3.fromRGB(120, 255, 160))
-    pad("Gate" .. g.id .. "_checkin", { cx + 1.5, cz }, 1.0, Color3.fromRGB(255, 120, 120))
+    pad("Gate" .. g.id .. "_checkin", checkinPos(g), 1.0, Color3.fromRGB(255, 120, 120))
 end
 -- COTA loop centreline tiles + transition zone
 local loop = W.cota_loop_centreline
@@ -145,15 +151,16 @@ end
 pad("Pad_N5_Transition", NODES.N5.zone.c, NODES.N5.zone.r, Color3.fromRGB(255, 255, 255))
 -- hill ridges with tunnel gaps (roofed)
 local TW = NODES.N6.tunnel_width
+local RIDGE_H = 7  -- was 3: the 3-stud tunnel roof was lower than a walking humanoid (HRP y about 2.6)
 for ri, r in ipairs(NODES.N6.ridges) do
     local x0, x1, tx = r.x[1], r.x[2], r.tunnel_x
     local segs = { { x0, tx - TW / 2 }, { tx + TW / 2, x1 } }
     for si, s in ipairs(segs) do
         if s[2] > s[1] then
-            part("Ridge" .. ri .. "_" .. si, Vector3.new(s[2] - s[1], 3, 2), Vector3.new((s[1] + s[2]) / 2, 1.5, r.z), Color3.fromRGB(120, 100, 80), { role = "Mesa", tag = "ridge" })
+            part("Ridge" .. ri .. "_" .. si, Vector3.new(s[2] - s[1], RIDGE_H, 2), Vector3.new((s[1] + s[2]) / 2, RIDGE_H / 2, r.z), Color3.fromRGB(120, 100, 80), { role = "Mesa", tag = "ridge" })
         end
     end
-    part("Tunnel" .. ri .. "_roof", Vector3.new(TW + 1, 0.6, 2.4), Vector3.new(tx, 3.3, r.z), Color3.fromRGB(100, 84, 66), { role = "Mesa", tag = "tunnel" })
+    part("Tunnel" .. ri .. "_roof", Vector3.new(TW + 1, 0.6, 2.4), Vector3.new(tx, RIDGE_H + 0.3, r.z), Color3.fromRGB(100, 84, 66), { role = "Mesa", tag = "tunnel" })
 end
 pad("Pad_N7_Summit", NODES.N7.zone.c, NODES.N7.zone.r, Color3.fromRGB(255, 215, 0))
 
@@ -333,7 +340,7 @@ local function tryExit(player, x, y, z)
             if not st.gates[g.id] then
                 if st.hop and near(g.c, x, z, OPEN / 2) and math.abs(y - g.h) <= OPEN / 2 and y > g.h - 1.0 then
                     st.gates[g.id] = "pass"; logEvent(player, "GATE", { gate = g.id, res = "pass" })
-                elseif near({ g.c[1] + 1.5, g.c[2] }, x, z, 1.2) and y < 4 then
+                elseif near(checkinPos(g), x, z, 1.2) and y < 4 then
                     st.gates[g.id] = "bypassed_on_foot"; penal(player, "N4", "gate_" .. g.id .. "_bypassed_on_foot", NODES.N4.scoring.penalties.gate_bypassed_on_foot_s)
                 end
             end
