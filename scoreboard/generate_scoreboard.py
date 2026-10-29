@@ -5,23 +5,44 @@ import json, os, statistics as st, datetime
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 course = json.load(open(os.path.join(ROOT, "course.json")))
 names = {m["id"]: m["name"] for m in course["bot_models"]}
-rows = [json.loads(l) for l in open(os.path.join(ROOT, "scoreboard", "results.jsonl")) if l.strip()]
+all_rows = [json.loads(l) for l in open(os.path.join(ROOT, "scoreboard", "results.jsonl")) if l.strip()]
+live = [r for r in all_rows if r.get("source") == "clawblox-live"]
+rows = [r for r in all_rows if r.get("source", "sim-bank") == "sim-bank"]
 rows.sort(key=lambda r: (r["total_time_s"], r["run_id"]))
 fmt = lambda s: f"{int(s // 60)}:{s % 60:05.2f}"
 nodes = ["N1", "N1b", "N2", "N3", "N4", "N5", "N6"]
 models = [m["id"] for m in course["bot_models"]]
 
 L = [f"# Scoreboard: {course['title']} (course v{course['version']})", "",
-     f"Generated from `scoreboard/results.jsonl`: {len(rows)} result rows, {len({r['heat_id'] for r in rows})} heats, "
+     f"Generated from `scoreboard/results.jsonl`: {len(all_rows)} rows ({len(live)} live, {len(rows)} sim-bank); sim-bank: {len(rows)} result rows, {len({r['heat_id'] for r in rows})} heats, "
      f"commits {', '.join(sorted({r['commit_sha'][:10] for r in rows}))}.", "",
      "Total = node splits + penalties - bonuses. Times are on each bot's own clock (released 15 s apart; transit legs between nodes are neutral).",
      "Rows come from `runner/run_race.py`, which resamples measured per-bot records from the earlier sims; see each row's `provenance`.", "",
+     ]
+# ---- in-world section first, so live runs are not buried under the scaled sim-bank rows
+L += ["## In-world Clawblox races (source: clawblox-live)", "",
+      f"{len(live)} rows from {len({r['heat_id'] for r in live})} live heats. Times are read from the world's own node log "
+      "(Lua clock from each bot's Start, speed_scale 1). DNF rows show the node the bot was stuck in; their time is not ranked.", ""]
+for h in sorted({r["heat_id"] for r in live}):
+    hr = sorted((r for r in live if r["heat_id"] == h), key=lambda r: (r["status"] != "finished", r["total_time_s"]))
+    L += [f"### `{h}` (seed {hr[0]['seed']})", "", "| Place | Bot | Model | Total | Raw | Penalties | Bonus | Status | Nodes done | Run |", "|---|---|---|---|---|---|---|---|---|---|"]
+    k = 0
+    for r in hr:
+        fin = r["status"] == "finished"; k += fin
+        L.append(f"| {k if fin else '-'} | {r['bot_name']} | {names[r['bot_model']]} | {fmt(r['total_time_s']) if fin else 'DNF'} | {fmt(r['raw_time_s'])} | "
+                 f"{sum(p['s'] for p in r['penalties']):.0f} s | {sum(b['s'] for b in r['bonuses']):.0f} s | {r['status']}{' at ' + r['dnf_at'] if not fin else ''} | "
+                 f"{', '.join(n for n in r['node_splits'] if n != 'N0')} | `{r['run_id']}` |")
+    L.append("")
+if not live:
+    L += ["No live heats yet.", ""]
+L += ["## Sim-bank rows (source: sim-bank)", "", "Everything below is the resampled sim bank only; live rows are not mixed into these rankings.", "",
      "## Overall top 15", "", "| # | Bot | Model | Seed | Total | Raw | Penalties | Bonus | Status | Run |", "|---|---|---|---|---|---|---|---|---|---|"]
 for i, r in enumerate(rows[:15], 1):
     L.append(f"| {i} | {r['bot_name']} | {names[r['bot_model']]} | {r['seed']} | {fmt(r['total_time_s'])} | {fmt(r['raw_time_s'])} | "
              f"{sum(p['s'] for p in r['penalties']):.0f} s | {sum(b['s'] for b in r['bonuses']):.0f} s | {r['status']} | `{r['run_id']}` |")
 L += ["", "## By model", "", "| Model | Rows | Best | Median | Worst | Reef holds | Rescued | Pi sessions |", "|---|---|---|---|---|---|---|---|"]
-board = {"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "rows": len(rows), "top": [], "models": []}
+board = {"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "rows": len(rows), "top": [], "models": [],
+         "live": [{k: r.get(k) for k in ("run_id", "heat_id", "bot_name", "bot_model", "seed", "status", "dnf_at", "total_time_s", "raw_time_s", "node_splits")} for r in live]}
 for m in models:
     mr = [r for r in rows if r["bot_model"] == m]
     if not mr:
@@ -50,4 +71,4 @@ L += ["", "## Read before comparing models", "",
 board["top"] = [{k: r[k] for k in ("run_id", "bot_name", "bot_model", "seed", "total_time_s", "raw_time_s", "status")} for r in rows[:15]]
 open(os.path.join(ROOT, "scoreboard", "SCOREBOARD.md"), "w").write("\n".join(L) + "\n")
 json.dump(board, open(os.path.join(ROOT, "scoreboard", "leaderboard.json"), "w"), indent=1)
-print("SCOREBOARD.md:", len(rows), "rows")
+print("SCOREBOARD.md:", len(all_rows), "rows", f"({len(live)} live)")

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T21:51:44+00:00",
+ "generated_at": "2026-10-29T22:27:27+00:00",
  "rows": 150,
  "top": [
   {
@@ -230,6 +230,322 @@
   {
    "model": "seed_bot",
    "rows": 0
+  }
+ ],
+ "live": [
+  {
+   "run_id": "irc-v1-live-s101-b0",
+   "heat_id": "irc-v1-live-s101",
+   "bot_name": "wing_swarm-s101",
+   "bot_model": "wing_swarm",
+   "seed": 101,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 184.02,
+   "raw_time_s": 124.02,
+   "node_splits": {
+    "N0": 0,
+    "N1": 3.1,
+    "N2": 12.63,
+    "N3": 8.54,
+    "N4": 33.43,
+    "N5": 60.23,
+    "N6": 6.09,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s101-b1",
+   "heat_id": "irc-v1-live-s101",
+   "bot_name": "flying_beetle-s101",
+   "bot_model": "flying_beetle",
+   "seed": 101,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 456.88,
+   "raw_time_s": 476.88,
+   "node_splits": {
+    "N0": 0,
+    "N1": 11.54,
+    "N1b": 14.51,
+    "N2": 45.53,
+    "N3": 21.87,
+    "N4": 168.8,
+    "N5": 168.63,
+    "N6": 46,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s101-b2",
+   "heat_id": "irc-v1-live-s101",
+   "bot_name": "triathlete-s101",
+   "bot_model": "triathlete",
+   "seed": 101,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 573.99,
+   "raw_time_s": 533.99,
+   "node_splits": {
+    "N0": 0,
+    "N1": 17.93,
+    "N2": 44.18,
+    "N3": 36.84,
+    "N4": 123.99,
+    "N5": 242.63,
+    "N6": 68.42,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s101-b3",
+   "heat_id": "irc-v1-live-s101",
+   "bot_name": "curvity_scout-s101",
+   "bot_model": "curvity_scout",
+   "seed": 101,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 405.88,
+   "raw_time_s": 345.88,
+   "node_splits": {
+    "N0": 0,
+    "N1": 11.2,
+    "N2": 36.49,
+    "N3": 24.75,
+    "N4": 86.29,
+    "N5": 154.06,
+    "N6": 33.09,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s101-b4",
+   "heat_id": "irc-v1-live-s101",
+   "bot_name": "beetle_walker-s101",
+   "bot_model": "beetle_walker",
+   "seed": 101,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 508.49,
+   "raw_time_s": 448.49,
+   "node_splits": {
+    "N0": 0,
+    "N1": 13.23,
+    "N2": 46.45,
+    "N3": 33.08,
+    "N4": 137.98,
+    "N5": 194.81,
+    "N6": 22.94,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s102-b0",
+   "heat_id": "irc-v1-live-s102",
+   "bot_name": "flying_beetle-s102",
+   "bot_model": "flying_beetle",
+   "seed": 102,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 446.13,
+   "raw_time_s": 476.13,
+   "node_splits": {
+    "N0": 0,
+    "N1": 11.55,
+    "N1b": 10.01,
+    "N2": 45.66,
+    "N3": 21.9,
+    "N4": 92.54,
+    "N5": 204.12,
+    "N6": 90.35,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s102-b1",
+   "heat_id": "irc-v1-live-s102",
+   "bot_name": "triathlete-s102",
+   "bot_model": "triathlete",
+   "seed": 102,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 525.0,
+   "raw_time_s": 485.0,
+   "node_splits": {
+    "N0": 0,
+    "N1": 17.74,
+    "N2": 44.64,
+    "N3": 29.94,
+    "N4": 103.76,
+    "N5": 226.65,
+    "N6": 62.27,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s102-b2",
+   "heat_id": "irc-v1-live-s102",
+   "bot_name": "beetle_walker-s102",
+   "bot_model": "beetle_walker",
+   "seed": 102,
+   "status": "dnf",
+   "dnf_at": "N6",
+   "total_time_s": 547.5,
+   "raw_time_s": 487.5,
+   "node_splits": {
+    "N0": 0,
+    "N1": 16.4,
+    "N2": 45.63,
+    "N3": 30.93,
+    "N4": 134.87,
+    "N5": 259.67
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s102-b3",
+   "heat_id": "irc-v1-live-s102",
+   "bot_name": "curvity_scout-s102",
+   "bot_model": "curvity_scout",
+   "seed": 102,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 408.38,
+   "raw_time_s": 348.38,
+   "node_splits": {
+    "N0": 0,
+    "N1": 18.5,
+    "N2": 45.66,
+    "N3": 31.5,
+    "N4": 75.23,
+    "N5": 143.33,
+    "N6": 34.16,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s102-b4",
+   "heat_id": "irc-v1-live-s102",
+   "bot_name": "wing_swarm-s102",
+   "bot_model": "wing_swarm",
+   "seed": 102,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 217.54,
+   "raw_time_s": 157.54,
+   "node_splits": {
+    "N0": 0,
+    "N1": 3.41,
+    "N2": 12.61,
+    "N3": 8.75,
+    "N4": 26.72,
+    "N5": 99.98,
+    "N6": 6.07,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s103-b0",
+   "heat_id": "irc-v1-live-s103",
+   "bot_name": "curvity_scout-s103",
+   "bot_model": "curvity_scout",
+   "seed": 103,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 397.67,
+   "raw_time_s": 397.67,
+   "node_splits": {
+    "N0": 0,
+    "N1": 9.15,
+    "N1b": 14,
+    "N2": 36.51,
+    "N3": 24.83,
+    "N4": 80.87,
+    "N5": 198.24,
+    "N6": 34.07,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s103-b1",
+   "heat_id": "irc-v1-live-s103",
+   "bot_name": "flying_beetle-s103",
+   "bot_model": "flying_beetle",
+   "seed": 103,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 441.56,
+   "raw_time_s": 411.56,
+   "node_splits": {
+    "N0": 0,
+    "N1": 11.52,
+    "N2": 45.64,
+    "N3": 21.9,
+    "N4": 101.86,
+    "N5": 197.58,
+    "N6": 33.06,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s103-b2",
+   "heat_id": "irc-v1-live-s103",
+   "bot_name": "triathlete-s103",
+   "bot_model": "triathlete",
+   "seed": 103,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 561.84,
+   "raw_time_s": 521.84,
+   "node_splits": {
+    "N0": 0,
+    "N1": 18.09,
+    "N2": 44.16,
+    "N3": 29.97,
+    "N4": 113.04,
+    "N5": 263.38,
+    "N6": 53.2,
+    "N7": 0
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s103-b3",
+   "heat_id": "irc-v1-live-s103",
+   "bot_name": "beetle_walker-s103",
+   "bot_model": "beetle_walker",
+   "seed": 103,
+   "status": "dnf",
+   "dnf_at": "N6",
+   "total_time_s": 524.75,
+   "raw_time_s": 464.75,
+   "node_splits": {
+    "N0": 0,
+    "N1": 34.98,
+    "N2": 45.7,
+    "N3": 30.95,
+    "N4": 105.92,
+    "N5": 247.2
+   }
+  },
+  {
+   "run_id": "irc-v1-live-s103-b4",
+   "heat_id": "irc-v1-live-s103",
+   "bot_name": "wing_swarm-s103",
+   "bot_model": "wing_swarm",
+   "seed": 103,
+   "status": "finished",
+   "dnf_at": null,
+   "total_time_s": 258.3,
+   "raw_time_s": 198.3,
+   "node_splits": {
+    "N0": 0,
+    "N1": 7.08,
+    "N2": 44.82,
+    "N3": 22.81,
+    "N4": 54.48,
+    "N5": 61.41,
+    "N6": 7.7,
+    "N7": 0
+   }
   }
  ]
 }

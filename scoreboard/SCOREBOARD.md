@@ -1,9 +1,47 @@
 # Scoreboard: Mesa Island Race Course (course v1)
 
-Generated from `scoreboard/results.jsonl`: 150 result rows, 30 heats, commits 423f231061.
+Generated from `scoreboard/results.jsonl`: 165 rows (15 live, 150 sim-bank); sim-bank: 150 result rows, 30 heats, commits 423f231061.
 
 Total = node splits + penalties - bonuses. Times are on each bot's own clock (released 15 s apart; transit legs between nodes are neutral).
 Rows come from `runner/run_race.py`, which resamples measured per-bot records from the earlier sims; see each row's `provenance`.
+
+## In-world Clawblox races (source: clawblox-live)
+
+15 rows from 3 live heats. Times are read from the world's own node log (Lua clock from each bot's Start, speed_scale 1). DNF rows show the node the bot was stuck in; their time is not ranked.
+
+### `irc-v1-live-s101` (seed 101)
+
+| Place | Bot | Model | Total | Raw | Penalties | Bonus | Status | Nodes done | Run |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | wing_swarm-s101 | Wing-swarm bot (Clawblox humanoid) | 3:04.02 | 2:04.02 | 60 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s101-b0` |
+| 2 | curvity_scout-s101 | Curvity scout (centre lane) | 6:45.88 | 5:45.88 | 60 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s101-b3` |
+| 3 | flying_beetle-s101 | Flying beetle (walk + hop) | 7:36.88 | 7:56.88 | 40 s | 60 s | finished | N1, N1b, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s101-b1` |
+| 4 | beetle_walker-s101 | BeetleBot walker | 8:28.49 | 7:28.49 | 60 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s101-b4` |
+| 5 | triathlete-s101 | Triathlete (swim, roll, run) | 9:33.99 | 8:53.99 | 40 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s101-b2` |
+
+### `irc-v1-live-s102` (seed 102)
+
+| Place | Bot | Model | Total | Raw | Penalties | Bonus | Status | Nodes done | Run |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | wing_swarm-s102 | Wing-swarm bot (Clawblox humanoid) | 3:37.54 | 2:37.54 | 60 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s102-b4` |
+| 2 | curvity_scout-s102 | Curvity scout (centre lane) | 6:48.38 | 5:48.38 | 60 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s102-b3` |
+| 3 | flying_beetle-s102 | Flying beetle (walk + hop) | 7:26.13 | 7:56.13 | 30 s | 60 s | finished | N1, N1b, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s102-b0` |
+| 4 | triathlete-s102 | Triathlete (swim, roll, run) | 8:45.00 | 8:05.00 | 40 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s102-b1` |
+| - | beetle_walker-s102 | BeetleBot walker | DNF | 8:07.50 | 60 s | 0 s | dnf at N6 | N1, N2, N3, N4, N5 | `irc-v1-live-s102-b2` |
+
+### `irc-v1-live-s103` (seed 103)
+
+| Place | Bot | Model | Total | Raw | Penalties | Bonus | Status | Nodes done | Run |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | wing_swarm-s103 | Wing-swarm bot (Clawblox humanoid) | 4:18.30 | 3:18.30 | 60 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s103-b4` |
+| 2 | curvity_scout-s103 | Curvity scout (centre lane) | 6:37.67 | 6:37.67 | 60 s | 60 s | finished | N1, N1b, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s103-b0` |
+| 3 | flying_beetle-s103 | Flying beetle (walk + hop) | 7:21.56 | 6:51.56 | 30 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s103-b1` |
+| 4 | triathlete-s103 | Triathlete (swim, roll, run) | 9:21.84 | 8:41.84 | 40 s | 0 s | finished | N1, N2, N3, N4, N5, N6, N7 | `irc-v1-live-s103-b2` |
+| - | beetle_walker-s103 | BeetleBot walker | DNF | 7:44.75 | 60 s | 0 s | dnf at N6 | N1, N2, N3, N4, N5 | `irc-v1-live-s103-b3` |
+
+## Sim-bank rows (source: sim-bank)
+
+Everything below is the resampled sim bank only; live rows are not mixed into these rankings.
 
 ## Overall top 15
 

@@ -1,0 +1,629 @@
+{
+ "seed": 103,
+ "port": 8299,
+ "order": [
+  "curvity_scout",
+  "flying_beetle",
+  "triathlete",
+  "beetle_walker",
+  "wing_swarm"
+ ],
+ "flyer_reserve_J": 13.93,
+ "reef_bot": "curvity_scout",
+ "speed_scale": 1,
+ "cap_s": 1500.0,
+ "started_unix": 1793311870.1,
+ "bots": {
+  "wing_swarm-s103": {
+   "model": "wing_swarm",
+   "release_at_s": 60.0,
+   "reserve_J": null,
+   "reef_route": false,
+   "RaceState": "finished",
+   "CurrentNode": "",
+   "RaceClock": 241.91,
+   "NodeLog": [
+    {
+     "enter": 0,
+     "exit": 0,
+     "mode": "release",
+     "node": "N0",
+     "split": 0
+    },
+    {
+     "enter": 18.24,
+     "exit": 25.32,
+     "mode": "walk",
+     "node": "N1",
+     "split": 7.08
+    },
+    {
+     "enter": 40.6,
+     "exit": 85.42,
+     "mode": "walk",
+     "node": "N2",
+     "split": 44.82
+    },
+    {
+     "enter": 85.42,
+     "exit": 108.24,
+     "mode": "walk",
+     "node": "N3",
+     "split": 22.81
+    },
+    {
+     "enter": 114.54,
+     "exit": 169.03,
+     "mode": "walk",
+     "node": "N4",
+     "split": 54.48
+    },
+    {
+     "enter": 171.51,
+     "exit": 232.92,
+     "mode": "walk",
+     "node": "N5",
+     "split": 61.41
+    },
+    {
+     "enter": 232.92,
+     "exit": 240.62,
+     "mode": "walk",
+     "node": "N6",
+     "split": 7.7
+    },
+    {
+     "enter": 240.62,
+     "exit": 240.62,
+     "mode": "finish",
+     "node": "N7",
+     "split": 0
+    }
+   ],
+   "Penalties": [
+    {
+     "node": "N1",
+     "reason": "no_swim_shore_path",
+     "s": 20
+    },
+    {
+     "node": "N4",
+     "reason": "gate_D_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_C_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_B_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_A_bypassed_on_foot",
+     "s": 10
+    }
+   ],
+   "GateLog": {
+    "A": "bypassed_on_foot",
+    "B": "bypassed_on_foot",
+    "C": "bypassed_on_foot",
+    "D": "bypassed_on_foot"
+   },
+   "Laps": 1.0,
+   "EnergyJ": 13.0,
+   "wall_s": 241.9,
+   "notes": [
+    "stall at (-34.0,-44.0) -> sidestep to (-35.1,-41.2)",
+    "stall at (37.0,-36.6) -> sidestep to (39.8,-35.6)",
+    "stall at (6.8,-15.5) -> sidestep to (4.3,-17.2)",
+    "stall at (6.8,-15.5) -> sidestep to (9.2,-13.7)"
+   ]
+  },
+  "flying_beetle-s103": {
+   "model": "flying_beetle",
+   "release_at_s": 15.0,
+   "reserve_J": 13.93,
+   "reef_route": false,
+   "RaceState": "finished",
+   "CurrentNode": "",
+   "RaceClock": 540.88,
+   "NodeLog": [
+    {
+     "enter": 0,
+     "exit": 0,
+     "mode": "release",
+     "node": "N0",
+     "split": 0
+    },
+    {
+     "enter": 46.15,
+     "exit": 57.67,
+     "mode": "walk",
+     "node": "N1",
+     "split": 11.52
+    },
+    {
+     "enter": 84.29,
+     "exit": 129.93,
+     "mode": "walk",
+     "node": "N2",
+     "split": 45.64
+    },
+    {
+     "enter": 129.93,
+     "exit": 151.83,
+     "mode": "hop",
+     "node": "N3",
+     "split": 21.9
+    },
+    {
+     "enter": 157.62,
+     "exit": 259.48,
+     "mode": "hop",
+     "node": "N4",
+     "split": 101.86
+    },
+    {
+     "enter": 274.98,
+     "exit": 472.57,
+     "mode": "walk",
+     "node": "N5",
+     "split": 197.58
+    },
+    {
+     "enter": 472.57,
+     "exit": 505.63,
+     "mode": "walk",
+     "node": "N6",
+     "split": 33.06
+    },
+    {
+     "enter": 505.63,
+     "exit": 505.63,
+     "mode": "finish",
+     "node": "N7",
+     "split": 0
+    }
+   ],
+   "Penalties": [
+    {
+     "node": "N1",
+     "reason": "no_swim_shore_path",
+     "s": 20
+    },
+    {
+     "node": "N4",
+     "reason": "gate_A_bypassed_on_foot",
+     "s": 10
+    }
+   ],
+   "GateLog": {
+    "A": "bypassed_on_foot",
+    "B": "pass",
+    "C": "pass",
+    "D": "pass"
+   },
+   "Laps": 1.0,
+   "EnergyJ": 0.88,
+   "wall_s": 540.9,
+   "notes": [
+    "stall at (-31.0,-44.0) -> sidestep to (-30.9,-41.0)",
+    "stall at (-28.1,-41.9) -> sidestep to (-28.6,-44.9)",
+    "stall at (-27.9,-41.9) -> sidestep to (-27.5,-39.0)",
+    "stall at (39.2,-39.2) -> sidestep to (36.2,-39.3)",
+    "stall at (38.6,-37.9) -> sidestep to (41.6,-38.2)",
+    "stall at (39.1,-39.2) -> sidestep to (36.1,-39.2)",
+    "stall at (21.6,-27.1) -> sidestep to (20.6,-29.9)",
+    "stall at (9.1,-26.5) -> sidestep to (6.4,-27.9)",
+    "stall at (6.8,-15.8) -> sidestep to (4.2,-17.4)",
+    "stall at (6.8,-15.0) -> sidestep to (9.0,-13.0)",
+    "stall at (0.4,26.4) -> sidestep to (3.0,27.7)",
+    "stall at (23.5,-20.3) -> sidestep to (20.5,-20.0)",
+    "stall at (21.2,-12.2) -> sidestep to (18.5,-13.6)",
+    "stall at (19.3,-12.2) -> sidestep to (22.1,-13.2)",
+    "stall at (19.3,-12.2) -> sidestep to (16.4,-11.2)",
+    "stall at (18.2,-10.8) -> sidestep to (19.3,-13.5)",
+    "stall at (18.2,-11.0) -> sidestep to (16.8,-8.3)",
+    "gave up reaching (20,-10) from (18.5,-9.3)"
+   ]
+  },
+  "curvity_scout-s103": {
+   "model": "curvity_scout",
+   "release_at_s": 0.0,
+   "reserve_J": null,
+   "reef_route": true,
+   "RaceState": "finished",
+   "CurrentNode": "",
+   "RaceClock": 571.04,
+   "NodeLog": [
+    {
+     "enter": 0,
+     "exit": 0,
+     "mode": "release",
+     "node": "N0",
+     "split": 0
+    },
+    {
+     "enter": 38.27,
+     "exit": 47.43,
+     "mode": "walk-centre",
+     "node": "N1",
+     "split": 9.15
+    },
+    {
+     "enter": 88.66,
+     "exit": 102.66,
+     "mode": "walk-centre",
+     "node": "N1b",
+     "split": 14
+    },
+    {
+     "enter": 146.27,
+     "exit": 182.79,
+     "mode": "walk-centre",
+     "node": "N2",
+     "split": 36.51
+    },
+    {
+     "enter": 182.79,
+     "exit": 207.62,
+     "mode": "walk-centre",
+     "node": "N3",
+     "split": 24.83
+    },
+    {
+     "enter": 218,
+     "exit": 298.87,
+     "mode": "walk-centre",
+     "node": "N4",
+     "split": 80.87
+    },
+    {
+     "enter": 305.58,
+     "exit": 503.82,
+     "mode": "walk-centre",
+     "node": "N5",
+     "split": 198.24
+    },
+    {
+     "enter": 503.82,
+     "exit": 537.9,
+     "mode": "walk-centre",
+     "node": "N6",
+     "split": 34.07
+    },
+    {
+     "enter": 537.9,
+     "exit": 537.9,
+     "mode": "finish",
+     "node": "N7",
+     "split": 0
+    }
+   ],
+   "Penalties": [
+    {
+     "node": "N1",
+     "reason": "no_swim_shore_path",
+     "s": 20
+    },
+    {
+     "node": "N4",
+     "reason": "gate_D_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_C_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_A_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_B_skipped",
+     "s": 10
+    }
+   ],
+   "GateLog": {
+    "A": "bypassed_on_foot",
+    "B": "skipped",
+    "C": "bypassed_on_foot",
+    "D": "bypassed_on_foot"
+   },
+   "Laps": 1.0,
+   "EnergyJ": 13.0,
+   "wall_s": 571.0,
+   "notes": [
+    "stall at (-32.5,-44.0) -> sidestep to (-32.4,-41.0)",
+    "stall at (-32.5,-44.0) -> sidestep to (-32.6,-47.0)",
+    "stall at (-26.6,-46.0) -> sidestep to (-26.9,-43.1)",
+    "stall at (20.2,-47.2) -> sidestep to (20.7,-44.2)",
+    "stall at (28.0,-46.2) -> sidestep to (25.0,-46.2)",
+    "stall at (21.3,-48.3) -> sidestep to (21.4,-51.3)",
+    "stall at (20.8,-50.8) -> sidestep to (21.2,-47.8)",
+    "stall at (19.6,-50.8) -> sidestep to (19.2,-53.7)",
+    "stall at (-34.0,-44.0) -> sidestep to (-35.1,-41.2)",
+    "stall at (9.6,-27.0) -> sidestep to (7.1,-28.6)",
+    "stall at (5.3,-19.2) -> sidestep to (2.3,-19.4)",
+    "stall at (2.6,-18.1) -> sidestep to (5.4,-19.3)",
+    "stall at (2.6,-18.1) -> sidestep to (-0.1,-16.8)",
+    "stall at (2.6,-14.9) -> sidestep to (4.6,-17.1)",
+    "stall at (2.6,-14.9) -> sidestep to (0.7,-12.6)",
+    "stall at (16.6,-23.5) -> sidestep to (19.6,-23.9)",
+    "stall at (19.6,-28.5) -> sidestep to (21.0,-25.9)",
+    "stall at (23.5,-20.4) -> sidestep to (20.5,-20.0)",
+    "stall at (23.5,-20.4) -> sidestep to (26.5,-20.7)",
+    "stall at (26.1,-21.1) -> sidestep to (23.4,-22.2)",
+    "stall at (21.2,-12.2) -> sidestep to (18.5,-13.6)",
+    "stall at (19.8,-12.4) -> sidestep to (22.7,-12.7)",
+    "stall at (21.6,-11.9) -> sidestep to (19.3,-13.8)",
+    "stall at (19.8,-12.4) -> sidestep to (22.7,-12.7)",
+    "stall at (21.6,-11.8) -> sidestep to (19.3,-13.8)",
+    "gave up reaching (20,-10) from (21.6,-11.9)"
+   ]
+  },
+  "triathlete-s103": {
+   "model": "triathlete",
+   "release_at_s": 30.0,
+   "reserve_J": null,
+   "reef_route": false,
+   "RaceState": "finished",
+   "CurrentNode": "",
+   "RaceClock": 717.12,
+   "NodeLog": [
+    {
+     "enter": 0,
+     "exit": 0,
+     "mode": "release",
+     "node": "N0",
+     "split": 0
+    },
+    {
+     "enter": 29.05,
+     "exit": 47.15,
+     "mode": "swim",
+     "node": "N1",
+     "split": 18.09
+    },
+    {
+     "enter": 101.66,
+     "exit": 145.82,
+     "mode": "run",
+     "node": "N2",
+     "split": 44.16
+    },
+    {
+     "enter": 145.82,
+     "exit": 175.79,
+     "mode": "run",
+     "node": "N3",
+     "split": 29.97
+    },
+    {
+     "enter": 252.1,
+     "exit": 365.14,
+     "mode": "run",
+     "node": "N4",
+     "split": 113.04
+    },
+    {
+     "enter": 373.34,
+     "exit": 636.72,
+     "mode": "roll",
+     "node": "N5",
+     "split": 263.38
+    },
+    {
+     "enter": 636.72,
+     "exit": 689.93,
+     "mode": "run",
+     "node": "N6",
+     "split": 53.2
+    },
+    {
+     "enter": 689.93,
+     "exit": 689.93,
+     "mode": "finish",
+     "node": "N7",
+     "split": 0
+    }
+   ],
+   "Penalties": [
+    {
+     "node": "N4",
+     "reason": "gate_D_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_C_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_B_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_A_bypassed_on_foot",
+     "s": 10
+    }
+   ],
+   "GateLog": {
+    "A": "bypassed_on_foot",
+    "B": "bypassed_on_foot",
+    "C": "bypassed_on_foot",
+    "D": "bypassed_on_foot"
+   },
+   "Laps": 2.0,
+   "EnergyJ": 13.0,
+   "wall_s": 717.1,
+   "notes": [
+    "stall at (-29.5,-43.9) -> sidestep to (-29.4,-40.9)",
+    "stall at (24.6,-38.0) -> sidestep to (21.7,-38.6)",
+    "stall at (22.7,-38.0) -> sidestep to (25.4,-39.3)",
+    "stall at (24.3,-38.0) -> sidestep to (21.3,-38.3)",
+    "stall at (21.8,-38.0) -> sidestep to (24.2,-39.8)",
+    "stall at (23.9,-38.0) -> sidestep to (20.9,-38.0)",
+    "stall at (-34.0,-44.0) -> sidestep to (-36.9,-43.4)",
+    "gave up reaching (-14.0,56) from (-34.0,-44.0)",
+    "stall at (38.6,-38.2) -> sidestep to (40.9,-36.3)",
+    "stall at (38.7,-38.6) -> sidestep to (36.7,-40.8)",
+    "stall at (6.8,-15.0) -> sidestep to (4.5,-17.0)",
+    "stall at (6.8,-14.4) -> sidestep to (4.7,-16.7)",
+    "stall at (6.8,-14.2) -> sidestep to (8.7,-12.0)",
+    "stall at (-33.9,-43.9) -> sidestep to (-35.7,-41.5)",
+    "stall at (2.6,-15.1) -> sidestep to (4.2,-17.7)",
+    "stall at (2.6,-14.8) -> sidestep to (1.1,-12.2)",
+    "stall at (24.4,-18.6) -> sidestep to (27.4,-19.0)",
+    "stall at (7.9,-17.3) -> sidestep to (5.5,-19.0)",
+    "stall at (5.8,-19.2) -> sidestep to (8.7,-18.8)",
+    "stall at (6.8,-16.2) -> sidestep to (4.1,-17.7)",
+    "stall at (6.8,-16.3) -> sidestep to (9.4,-14.9)",
+    "stall at (23.2,-20.8) -> sidestep to (20.3,-20.3)",
+    "stall at (23.2,-20.8) -> sidestep to (26.2,-21.3)",
+    "stall at (25.6,-21.1) -> sidestep to (22.8,-22.0)",
+    "stall at (23.6,-18.8) -> sidestep to (26.6,-19.2)",
+    "stall at (21.6,-13.9) -> sidestep to (18.9,-15.1)",
+    "stall at (19.6,-12.3) -> sidestep to (22.5,-12.9)",
+    "stall at (19.6,-12.3) -> sidestep to (16.6,-11.8)",
+    "stall at (18.4,-11.3) -> sidestep to (20.3,-13.6)",
+    "stall at (18.4,-11.3) -> sidestep to (16.5,-9.0)",
+    "gave up reaching (20,-10) from (18.4,-11.3)"
+   ]
+  },
+  "beetle_walker-s103": {
+   "model": "beetle_walker",
+   "release_at_s": 45.0,
+   "reserve_J": null,
+   "reef_route": false,
+   "RaceState": "racing",
+   "CurrentNode": "N6",
+   "RaceClock": 764.33,
+   "NodeLog": [
+    {
+     "enter": 0,
+     "exit": 0,
+     "mode": "release",
+     "node": "N0",
+     "split": 0
+    },
+    {
+     "enter": 31.53,
+     "exit": 66.52,
+     "mode": "walk",
+     "node": "N1",
+     "split": 34.98
+    },
+    {
+     "enter": 110.07,
+     "exit": 155.77,
+     "mode": "walk",
+     "node": "N2",
+     "split": 45.7
+    },
+    {
+     "enter": 155.77,
+     "exit": 186.73,
+     "mode": "walk",
+     "node": "N3",
+     "split": 30.95
+    },
+    {
+     "enter": 329.18,
+     "exit": 435.1,
+     "mode": "walk",
+     "node": "N4",
+     "split": 105.92
+    },
+    {
+     "enter": 443.67,
+     "exit": 690.88,
+     "mode": "walk",
+     "node": "N5",
+     "split": 247.2
+    },
+    {
+     "enter": 690.88,
+     "mode": "walk",
+     "node": "N6"
+    }
+   ],
+   "Penalties": [
+    {
+     "node": "N1",
+     "reason": "no_swim_shore_path",
+     "s": 20
+    },
+    {
+     "node": "N4",
+     "reason": "gate_D_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_C_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_B_bypassed_on_foot",
+     "s": 10
+    },
+    {
+     "node": "N4",
+     "reason": "gate_A_bypassed_on_foot",
+     "s": 10
+    }
+   ],
+   "GateLog": {
+    "A": "bypassed_on_foot",
+    "B": "bypassed_on_foot",
+    "C": "bypassed_on_foot",
+    "D": "bypassed_on_foot"
+   },
+   "Laps": 1.0,
+   "EnergyJ": 13.0,
+   "wall_s": 764.3,
+   "notes": [
+    "stall at (-28.0,-43.9) -> sidestep to (-27.9,-40.9)",
+    "stall at (26.3,-38.3) -> sidestep to (23.8,-40.0)",
+    "stall at (24.3,-38.0) -> sidestep to (27.3,-37.7)",
+    "stall at (26.1,-38.0) -> sidestep to (23.6,-39.7)",
+    "stall at (23.9,-38.0) -> sidestep to (26.9,-38.1)",
+    "stall at (26.2,-37.9) -> sidestep to (23.8,-39.7)",
+    "stall at (24.1,-38.0) -> sidestep to (27.0,-38.0)",
+    "gave up reaching (24,-35) from (26.2,-37.8)",
+    "stall at (-34.0,-44.0) -> sidestep to (-36.9,-43.4)",
+    "gave up reaching (-14.0,56) from (-34.0,-44.0)",
+    "stall at (38.6,-38.2) -> sidestep to (40.9,-36.3)",
+    "stall at (38.6,-38.2) -> sidestep to (36.4,-40.2)",
+    "stall at (20.9,-27.1) -> sidestep to (22.6,-29.5)",
+    "stall at (22.1,-29.0) -> sidestep to (21.7,-26.1)",
+    "stall at (9.2,-26.7) -> sidestep to (6.6,-28.2)",
+    "stall at (6.8,-15.9) -> sidestep to (4.2,-17.5)",
+    "stall at (-1.3,-3.3) -> sidestep to (-3.5,-5.4)",
+    "stall at (-1.3,-3.3) -> sidestep to (0.8,-1.2)",
+    "stall at (0.5,26.4) -> sidestep to (3.2,27.7)",
+    "stall at (24.8,-17.1) -> sidestep to (27.7,-17.6)",
+    "stall at (25.8,-16.9) -> sidestep to (23.0,-15.9)",
+    "stall at (22.1,-16.9) -> sidestep to (24.9,-15.8)",
+    "stall at (23.5,-20.2) -> sidestep to (20.5,-19.9)",
+    "stall at (23.5,-20.2) -> sidestep to (26.5,-20.5)",
+    "stall at (19.8,-12.9) -> sidestep to (16.8,-12.7)",
+    "stall at (19.7,-12.9) -> sidestep to (22.7,-13.1)",
+    "stall at (19.8,-12.9) -> sidestep to (16.8,-12.7)",
+    "stall at (19.8,-12.8) -> sidestep to (22.7,-13.1)",
+    "gave up reaching (20,-10) from (19.8,-12.9)"
+   ]
+  }
+ }
+}

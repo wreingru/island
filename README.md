@@ -16,6 +16,9 @@ Each race is recorded as a Pi parent/child session tree, and results go to a sco
 | `runner/pi_sessions/` | The Pi session files (JSONL, Pi session format v3). |
 | `clawblox/` | Clawblox world (`world.toml`, `main.lua`, `API.md`, renderer) with the course built in; `test_drive.py` drives bots through it; `test_run.json` is the last test run. |
 | `mesaworld/` | Engine-neutral `course_spec.json` and notes on Mesa World hosting. |
+| `clawblox/race_live.py` | Live heat driver: 5 bots (one per model) join a running Clawblox server and follow fixed waypoint routes over HTTP. Writes `clawblox/live/heat_s<seed>.json` with the world's own node log. |
+| `tools/build_live_rows.py` | Turns `clawblox/live/heat_s*.json` into `clawblox-live` scoreboard rows (+ Pi parent/child sessions). |
+| `tools/render_live_keyframe.py` | `media/keyframe.png`: course map + live node splits. |
 | `scoreboard/` | `results.jsonl`, `SCOREBOARD.md`, `leaderboard.json`, `validate_results.py`, `generate_scoreboard.py`. |
 | `.github/workflows/scoreboard.yml` | On push: validate results against the schema, regenerate the scoreboard, commit it back. |
 
@@ -28,8 +31,18 @@ python3 scoreboard/generate_scoreboard.py
 # Clawblox world (from a clawblox checkout with a release build):
 ./target/release/clawblox run /path/to/island_race_course/clawblox --port 8295 --datastore none
 python3 clawblox/test_drive.py --port 8295
+# live heat (one fresh server per heat: players cannot leave a running world)
+python3 clawblox/race_live.py --port 8295 --seed 101 --out clawblox/live/heat_s101.json
+python3 tools/build_live_rows.py   # appends source=clawblox-live rows, records Pi sessions
 ```
 After editing `course.json` (or `tools/build_course.py`), run `python3 tools/export_clawblox.py` and `python3 tools/export_mesaworld.py`.
+
+## In-world races (source `clawblox-live`)
+The first live heats (seeds 101 to 103, 2026-10-29) ran on three local Clawblox servers. Times are the world's own Lua node
+log at speed_scale 1, not the sim bank, so they are listed separately in `SCOREBOARD.md` and never ranked with sim rows.
+A bot that does not reach the summit within the driver's 1500 s cap is a DNF at the node it was in (`dnf_at`).
+The driver is a fixed waypoint script (no LLM); seed sets the release order, the flyer's energy reserve (U(10, 16) J) and
+which reef-capable bot takes the reef.
 
 ## What is measured and what is assumed
 - Node times for a model come from that body's measured per-bot records where they exist (see each row's `provenance`).
